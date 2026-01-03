@@ -1,0 +1,1431 @@
+COPY EVERYTHING BELOW THIS LINE
+================================================================================
+AUTOMEIT.AI — PRODUCTION WEBSITE BUILD SPECIFICATION
+================================================================================
+
+ROLE
+You are a senior product engineer and designer building a production-ready 
+marketing website for an AI automation agency called AutoMeit.ai. 
+Build the full site end-to-end with zero placeholder logic or TODO comments.
+
+GOAL
+Create a fast, modern, dark-mode-first, conversion-focused website where 
+clients can clearly understand offers and book a call or submit a contact form. 
+The site must be deployable immediately after build completes.
+
+================================================================================
+SECTION 1: TECH STACK (DO NOT DEVIATE)
+================================================================================
+
+Framework:       Next.js 14+ (App Router) + TypeScript
+Styling:         Tailwind CSS
+Animations:      Framer Motion (subtle only, respect prefers-reduced-motion)
+Icons:           Lucide React
+Font:            Inter (via next/font/google)
+Forms:           React Hook Form + Zod validation
+Calendly:        react-calendly (PopupWidget for modal)
+SEO:             Next.js App Router metadata API
+
+DO NOT USE:
+- Heavy UI component libraries (no shadcn, no MUI, no Chakra)
+- Canvas-based animations or Three.js
+- External CSS frameworks beyond Tailwind
+- Any database or auth at this stage
+
+================================================================================
+SECTION 2: PROJECT STRUCTURE (CREATE EXACTLY THIS)
+================================================================================
+
+automeit-website/
+├── app/
+│   ├── layout.tsx              # Root layout with metadata, fonts, Analytics
+│   ├── page.tsx                # Homepage
+│   ├── services/
+│   │   └── page.tsx            # Services page
+│   ├── about/
+│   │   └── page.tsx            # About page
+│   ├── contact/
+│   │   └── page.tsx            # Contact page
+│   ├── privacy/
+│   │   └── page.tsx            # Privacy policy (placeholder content)
+│   ├── terms/
+│   │   └── page.tsx            # Terms of service (placeholder content)
+│   ├── not-found.tsx           # Custom 404 page
+│   ├── sitemap.ts              # Dynamic sitemap generation
+│   ├── robots.ts               # Robots.txt generation
+│   └── api/
+│       ├── contact/
+│       │   └── route.ts        # Contact form handler
+│       └── checklist/
+│           └── route.ts        # Lead magnet handler
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.tsx
+│   │   ├── MobileNav.tsx
+│   │   └── Footer.tsx
+│   ├── sections/
+│   │   ├── Hero.tsx
+│   │   ├── ProblemAgitation.tsx
+│   │   ├── SolutionOverview.tsx
+│   │   ├── HowItWorks.tsx
+│   │   ├── PricingCards.tsx
+│   │   ├── Results.tsx
+│   │   ├── Testimonials.tsx
+│   │   ├── CaseStudies.tsx
+│   │   ├── Industries.tsx
+│   │   ├── LeadMagnet.tsx
+│   │   ├── FAQ.tsx
+│   │   ├── FinalCTA.tsx
+│   │   └── TrustBar.tsx
+│   ├── ui/
+│   │   ├── Button.tsx
+│   │   ├── Card.tsx
+│   │   ├── SectionWrapper.tsx
+│   │   ├── Accordion.tsx
+│   │   └── ContactForm.tsx
+│   ├── CalendlyModal.tsx
+│   ├── StickyMobileCTA.tsx
+│   └── Analytics.tsx
+├── lib/
+│   ├── constants.ts            # All constants including Calendly link
+│   ├── metadata.ts             # SEO metadata configs
+│   └── utils.ts                # Helper functions
+├── public/
+│   ├── favicon.ico
+│   ├── apple-touch-icon.png
+│   ├── icon-192.png
+│   ├── icon-512.png
+│   ├── og-image.png            # 1200x630 Open Graph image
+│   └── manifest.json
+├── styles/
+│   └── globals.css             # Tailwind imports + custom utilities
+├── .env.example
+├── tailwind.config.ts
+├── next.config.js
+├── tsconfig.json
+├── package.json
+└── README.md
+
+================================================================================
+SECTION 3: DESIGN SYSTEM (EXACT VALUES)
+================================================================================
+
+COLORS:
+--background-primary:    #0a0f1c (dark navy)
+--background-secondary:  #111827 (charcoal)
+--background-card:       rgba(17, 24, 39, 0.7) (glassmorphism)
+--accent-blue:           #3b82f6 (electric blue)
+--accent-cyan:           #06b6d4 (cyan)
+--accent-purple:         #8b5cf6 (purple)
+--text-primary:          #f9fafb (near white)
+--text-secondary:        #9ca3af (gray)
+--text-muted:            #6b7280 (darker gray)
+--border-subtle:         rgba(59, 130, 246, 0.2)
+--gradient-blue-purple:  linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)
+
+TYPOGRAPHY:
+- Font: Inter (weights: 400, 500, 600, 700)
+- H1: 4rem/1.1, font-bold
+- H2: 2.5rem/1.2, font-bold
+- H3: 1.5rem/1.3, font-semibold
+- Body: 1rem/1.6, font-normal
+- Small: 0.875rem/1.5
+
+EFFECTS:
+- Card glassmorphism: bg-gray-900/70 backdrop-blur-sm border border-white/10
+- Gradient borders: Use pseudo-elements with gradient backgrounds
+- Shadows: shadow-xl shadow-blue-500/10
+- Hover states: scale-[1.02] transition-transform duration-200
+- Button glow: shadow-lg shadow-blue-500/25 on hover
+
+SPACING:
+- Section padding: py-24 (desktop), py-16 (mobile)
+- Container: max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
+- Card gaps: gap-6 or gap-8
+
+BACKGROUNDS:
+- Dot pattern: radial-gradient(circle, rgba(59,130,246,0.1) 1px, transparent 1px)
+- Grid pattern: Use CSS grid lines with very low opacity
+
+================================================================================
+SECTION 4: CONSTANTS FILE (lib/constants.ts)
+================================================================================
+
+Create this exact file:
+````typescript
+// lib/constants.ts
+
+// Calendly - Replace with real link or use env variable
+export const CALENDLY_LINK = 
+  process.env.NEXT_PUBLIC_CALENDLY_LINK || 
+  "https://calendly.com/automeit/audit";
+
+// Contact
+export const CONTACT_EMAIL = "hello@automeit.ai";
+
+// Site
+export const SITE_URL = "https://automeit.ai";
+export const SITE_NAME = "AutoMeit.ai";
+
+// Navigation
+export const NAV_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+] as const;
+
+export const FOOTER_LINKS = {
+  company: [
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Contact", href: "/contact" },
+  ],
+  legal: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+  ],
+  resources: [
+    { label: "Free Audit Checklist", href: "#lead-magnet" },
+  ],
+} as const;
+
+// Services anchors (must match IDs on /services page)
+export const SERVICE_ANCHORS = {
+  leadIntelligence: "/services#lead-intelligence",
+  supportAutomation: "/services#support-automation",
+  documentProcessing: "/services#document-processing",
+  customWorkflows: "/services#custom-workflows",
+} as const;
+
+// Pricing
+export const PRICING = {
+  starter: {
+    name: "Automation Quick Win",
+    price: "Starting at $3,500",
+    description: "Perfect for testing the waters with one high-impact automation.",
+    features: [
+      "One core workflow automation",
+      "Up to 3 tool integrations",
+      "14-day delivery",
+      "30 days support included",
+    ],
+    cta: "Get Started",
+  },
+  core: {
+    name: "Full Automation System",
+    price: "Starting at $8,000",
+    description: "Complete automation system that transforms an entire process.",
+    features: [
+      "End-to-end workflow automation",
+      "AI-powered processing & decisions",
+      "Unlimited integrations",
+      "Custom dashboard & reporting",
+      "60 days support included",
+    ],
+    cta: "Book a Call",
+    featured: true,
+  },
+  scale: {
+    name: "Ongoing Automation Partner",
+    price: "$2,000 – $5,000/month",
+    description: "Continuous optimization, support, and new automations as you grow.",
+    features: [
+      "Priority support & monitoring",
+      "Monthly optimization reviews",
+      "New automation builds (2-4/month)",
+      "Dedicated Slack channel",
+      "Cancel anytime",
+    ],
+    cta: "Let's Talk",
+  },
+} as const;
+
+// Testimonials (placeholder - replace with real ones)
+export const TESTIMONIALS = [
+  {
+    quote: "AutoMeit cut our lead response time from 4 hours to 4 minutes. Our close rate jumped 35%.",
+    author: "Sarah K.",
+    role: "Head of Sales",
+    company: "TechCorp",
+  },
+  {
+    quote: "We were drowning in support tickets. Now our AI handles 80% of them and our team focuses on complex issues.",
+    author: "Marcus L.",
+    role: "Operations Director",
+    company: "ScaleUp Inc",
+  },
+  {
+    quote: "The ROI was obvious within the first month. Best investment we made this year.",
+    author: "Jennifer R.",
+    role: "Founder",
+    company: "GrowthAgency",
+  },
+] as const;
+
+// FAQ
+export const FAQ_ITEMS = [
+  {
+    question: "How long does it take to see results?",
+    answer: "Most clients see measurable time savings within the first week of launch. Full ROI typically happens within 60-90 days.",
+  },
+  {
+    question: "What if our tools aren't compatible?",
+    answer: "We work with 200+ tools and APIs. If your tools have an API or connect to Zapier/Make, we can automate it. We'll confirm compatibility in our discovery call.",
+  },
+  {
+    question: "Is our data secure?",
+    answer: "Absolutely. We use enterprise-grade encryption, never store sensitive data unnecessarily, and can sign custom NDAs or security agreements.",
+  },
+  {
+    question: "What happens if something breaks?",
+    answer: "All our plans include support. We monitor your automations and fix issues fast — usually same-day. You'll have a direct Slack line to our team.",
+  },
+  {
+    question: "Can we start small and scale up?",
+    answer: "Yes! Most clients start with a Quick Win project to prove value, then expand to full systems and retainers.",
+  },
+] as const;
+
+// Metrics
+export const METRICS = [
+  { value: "15+", label: "Hours", description: "Average weekly time saved per client" },
+  { value: "70%", label: "Automated", description: "Support tickets handled automatically" },
+  { value: "< 90", label: "Days", description: "Average time to full ROI" },
+] as const;
+
+// Industries
+export const INDUSTRIES = [
+  "Legal Firms",
+  "Recruiting Agencies", 
+  "E-commerce",
+  "B2B SaaS",
+  "Professional Services",
+] as const;
+````
+
+================================================================================
+SECTION 5: HOMEPAGE SECTIONS (app/page.tsx)
+================================================================================
+
+Build these sections IN THIS EXACT ORDER:
+
+----- SECTION A: HERO -----
+
+<section id="hero">
+  Background: Subtle animated gradient (CSS only, no canvas)
+              Add floating geometric shapes using Framer Motion (3-4 shapes, slow float)
+              Dot grid pattern overlay at 5% opacity
+  
+  Content:
+    Badge: "AI-Powered Business Automation" (small pill above headline)
+    
+    Headline: "Stop Drowning in Repetitive Work"
+    (text-5xl md:text-6xl lg:text-7xl font-bold, gradient text optional)
+    
+    Subheadline: "We build AI-powered automation systems that eliminate 10–20+ hours 
+    of manual tasks per week — so your team can focus on what actually grows the business."
+    (text-xl text-gray-400 max-w-2xl)
+    
+    CTA Buttons (flex row, gap-4):
+      Primary: "Book a Free Automation Audit" 
+               → Opens CalendlyModal (PopupWidget)
+               → Blue gradient background, white text, hover glow
+      
+      Secondary: "See How It Works"
+                 → onClick: smooth scroll to #how-it-works
+                 → Outline style, border-white/20
+    
+    Trust Badges (flex row, gap-8, mt-12):
+      "✓ Trusted by 20+ companies"
+      "✓ Average 15 hours saved/week"  
+      "✓ 90-day ROI guarantee"
+      (text-sm text-gray-500)
+</section>
+
+----- SECTION B: INDUSTRIES STRIP -----
+
+<section id="industries">
+  Background: Slightly lighter than hero (bg-gray-900/50)
+  
+  Content:
+    Small label: "TRUSTED BY TEAMS IN"
+    
+    Horizontal scroll on mobile, flex row on desktop:
+      Legal Firms | Recruiting Agencies | E-commerce | B2B SaaS | Professional Services
+    
+    Style: Each as a pill/badge, subtle border, text-gray-400
+</section>
+
+----- SECTION C: PROBLEM AGITATION -----
+
+<section id="problems">
+  Headline: "Your Team Is Stuck in the Weeds"
+  
+  3 Cards in grid (grid-cols-1 md:grid-cols-3 gap-6):
+  
+  Card 1:
+    Icon: Users (Lucide)
+    Title: "Manual Lead Qualification"
+    Description: "Your sales team wastes hours sorting through unqualified leads 
+                  instead of closing deals."
+  
+  Card 2:
+    Icon: Mail (Lucide)
+    Title: "Repetitive Email & Support"
+    Description: "The same questions get answered 50 times a day while real 
+                  issues pile up."
+  
+  Card 3:
+    Icon: FileText (Lucide)
+    Title: "Data Entry & Document Processing"
+    Description: "Copy-paste workflows that should've been automated years ago."
+  
+  Card Style: 
+    - bg-gray-900/70 backdrop-blur-sm
+    - border border-white/10 rounded-xl
+    - p-8
+    - Icon in colored circle (red/orange tint to indicate pain)
+    - Hover: scale-[1.02] border-white/20
+  
+  Closing text (centered, mt-8):
+    "Sound familiar? There's a better way." 
+    (text-lg text-gray-400 italic)
+</section>
+
+----- SECTION D: SOLUTION OVERVIEW -----
+
+<section id="solutions">
+  Headline: "AI Systems That Work While You Sleep"
+  Subheadline: "We don't just build automations — we build intelligent systems 
+               that learn, adapt, and scale with your business."
+  
+  3 Cards in grid:
+  
+  Card 1:
+    Icon: Zap (Lucide, cyan color)
+    Title: "AI Lead Intelligence"
+    Description: "Automatically qualify, score, and route leads to the right rep 
+                  with personalized follow-ups."
+    Link: "Learn more →" → href="/services#lead-intelligence"
+  
+  Card 2:
+    Icon: MessageSquare (Lucide, blue color)
+    Title: "Smart Support Automation"
+    Description: "AI agents that handle 70%+ of support tickets instantly — 
+                  escalating only what matters."
+    Link: "Learn more →" → href="/services#support-automation"
+  
+  Card 3:
+    Icon: FileSearch (Lucide, purple color)
+    Title: "Document & Data Processing"
+    Description: "Extract, process, and sync data across your tools without 
+                  human intervention."
+    Link: "Learn more →" → href="/services#document-processing"
+  
+  Card Style:
+    - Gradient border effect (pseudo-element)
+    - bg-gray-900/70 backdrop-blur-sm
+    - p-8 rounded-xl
+    - Icon with colored background circle
+    - Hover: lift effect + border glow
+</section>
+
+----- SECTION E: LEAD MAGNET -----
+
+<section id="lead-magnet">
+  Background: Gradient from blue/purple (subtle)
+  
+  Content (two columns on desktop):
+    Left:
+      Headline: "Get the 25-Point Automation Audit Checklist"
+      Description: "Discover exactly which processes in your business are 
+                    costing you the most time — and how to fix them."
+      Bullets:
+        "✓ Identify your biggest time-wasters"
+        "✓ Calculate your automation ROI"
+        "✓ Prioritize what to automate first"
+    
+    Right:
+      Form:
+        Input: Email (type="email", placeholder="Enter your email")
+        Button: "Get Free Checklist"
+        Small text: "No spam. Unsubscribe anytime."
+      
+      Form submits to /api/checklist (POST)
+      Show loading state, then success message
+</section>
+
+----- SECTION F: HOW IT WORKS -----
+
+<section id="how-it-works">
+  Headline: "From Chaos to Automation in 14 Days"
+  
+  Timeline (horizontal on desktop, vertical on mobile):
+  
+  Step 1:
+    Day badge: "Day 1"
+    Title: "Discovery Call"
+    Description: "We map your workflows and identify the biggest time-wasters."
+    Icon: Phone
+  
+  Step 2:
+    Day badge: "Day 2-3"
+    Title: "Custom Blueprint"
+    Description: "You get a detailed plan showing exactly what we'll build and the ROI."
+    Icon: FileText
+  
+  Step 3:
+    Day badge: "Day 4-10"
+    Title: "Build & Test"
+    Description: "We build your automation system and test it with real data."
+    Icon: Code
+  
+  Step 4:
+    Day badge: "Day 11-14"
+    Title: "Launch & Optimize"
+    Description: "Go live with monitoring, support, and continuous optimization."
+    Icon: Rocket
+  
+  Timeline Style:
+    - Connected with line/dots between steps
+    - Each step is a card
+    - Day badge has accent color background
+    - Animated entrance (stagger) with Framer Motion
+  
+  CTA below (centered):
+    "Start Your Automation Audit →" → Opens CalendlyModal
+</section>
+
+----- SECTION G: PRICING CARDS -----
+
+<section id="pricing">
+  Headline: "Automation Solutions That Pay for Themselves"
+  
+  3 Tier Cards (grid-cols-1 lg:grid-cols-3):
+  Use PRICING constant from lib/constants.ts
+  
+  Starter Card:
+    - Standard card style
+    - All features as bullet list
+    - CTA: "Get Started →"
+  
+  Core Card (FEATURED):
+    - Highlighted: gradient border, "Most Popular" badge
+    - Slightly larger or elevated
+    - All features as bullet list
+    - CTA: "Book a Call →" (primary style)
+  
+  Scale Card:
+    - Standard card style
+    - All features as bullet list
+    - CTA: "Let's Talk →"
+  
+  All CTAs → Open CalendlyModal
+</section>
+
+----- SECTION H: RESULTS / METRICS -----
+
+<section id="results">
+  Headline: "Real Results, Not Promises"
+  
+  3 Metric Cards (flex row, centered):
+  Use METRICS constant
+  
+  Each card:
+    - Large number (text-5xl font-bold gradient-text)
+    - Label below (text-lg)
+    - Description (text-sm text-gray-400)
+  
+  Style: 
+    - Cards have subtle gradient background
+    - Animate numbers on scroll into view (optional)
+</section>
+
+----- SECTION I: CASE STUDIES -----
+
+<section id="case-studies">
+  Headline: "See What's Possible"
+  
+  2 Mini Case Study Cards (grid-cols-1 md:grid-cols-2):
+  
+  Card 1:
+    Metric: "82%"
+    Title: "Faster Client Intake"
+    Description: "A legal firm automated their entire intake process — from form 
+                  submission to CRM entry — cutting processing time from 45 minutes to 8."
+    Link: "Read full story →" → href="/contact" (placeholder)
+  
+  Card 2:
+    Metric: "$9,000"
+    Title: "Monthly Savings"
+    Description: "An e-commerce brand automated customer support responses and 
+                  order status updates, eliminating 2 full-time support roles."
+    Link: "Read full story →" → href="/contact" (placeholder)
+  
+  Card Style:
+    - Left side: big metric with accent color
+    - Right side: title + description
+    - Hover: lift effect
+</section>
+
+----- SECTION J: TESTIMONIALS -----
+
+<section id="testimonials">
+  Testimonial Carousel:
+  Use TESTIMONIALS constant
+  
+  Display one at a time with fade transition
+  Or display all 3 in a grid on desktop
+  
+  Each testimonial:
+    - Quote in large italic text
+    - Author name, role, company below
+    - Optional: avatar placeholder (gray circle)
+  
+  Below testimonials:
+    Logo strip (placeholder):
+      "Trusted by innovative teams"
+      5-6 gray placeholder boxes representing company logos
+</section>
+
+----- SECTION K: FAQ -----
+
+<section id="faq">
+  Headline: "Common Questions"
+  
+  Accordion Component:
+  Use FAQ_ITEMS constant
+  
+  Each item:
+    - Question as trigger (clickable)
+    - Answer expands/collapses with animation
+    - Plus/minus icon or chevron
+  
+  Style:
+    - Full width, max-w-3xl centered
+    - Divider between items
+    - Smooth height animation
+</section>
+
+----- SECTION L: FINAL CTA -----
+
+<section id="final-cta">
+  Background: Gradient mesh or radial gradient (blue/purple)
+  
+  Content (centered, max-w-2xl):
+    Headline: "Ready to Eliminate the Busywork?"
+    
+    Subheadline: "Book a free 30-minute automation audit. We'll map your workflows 
+                  and show you exactly where AI can save you 10+ hours per week."
+    
+    Large CTA Button: "Book Your Free Audit"
+    → Opens CalendlyModal
+    → Style: Large, white background, dark text, prominent
+    
+    Below button (text-sm text-gray-400):
+      "No commitment. No pressure. Just clarity."
+</section>
+
+----- SECTION M: TRUST BAR -----
+
+<section id="trust-bar">
+  Background: Darker stripe (bg-gray-950)
+  
+  3 Trust Badges (flex row, centered, gap-8):
+    Badge 1: Shield icon + "SOC-2 Ready"
+    Badge 2: Lock icon + "End-to-end Encryption"  
+    Badge 3: FileCheck icon + "Signed NDAs Available"
+  
+  Style: Small, subtle, text-gray-500 with icon
+</section>
+
+----- FOOTER -----
+
+<footer>
+  4-column layout on desktop:
+  
+  Column 1: 
+    - AutoMeit.ai logo
+    - Tagline: "AI automation for growing businesses"
+    - Email: hello@automeit.ai
+  
+  Column 2: "Company"
+    - About, Services, Contact (links)
+  
+  Column 3: "Resources"
+    - Free Audit Checklist (link to #lead-magnet)
+  
+  Column 4: "Legal"
+    - Privacy Policy, Terms of Service (links)
+  
+  Bottom bar:
+    - Copyright: "© 2025 AutoMeit.ai. All rights reserved."
+    - Social icons: LinkedIn, Twitter/X (placeholder hrefs)
+</footer>
+
+================================================================================
+SECTION 6: SERVICES PAGE (/services)
+================================================================================
+
+Structure:
+
+----- HERO -----
+Headline: "Our Services"
+Subheadline: "Automation solutions designed for real business impact"
+
+----- SERVICE COMPARISON (Quick Pick) -----
+4 mini cards showing all services at a glance
+Each links to anchor below
+
+----- SERVICE 1: AI Lead Intelligence System -----
+id="lead-intelligence"
+
+What it does:
+  "Automatically captures, enriches, scores, and routes leads to the right 
+   sales rep — with personalized follow-up sequences triggered instantly."
+
+What's included:
+  • AI-powered lead scoring model
+  • CRM integration (HubSpot, Salesforce, Pipedrive, etc.)
+  • Automatic data enrichment (company size, industry, tech stack)
+  • Personalized follow-up email sequences
+  • Real-time Slack/Teams notifications
+  • Lead routing rules engine
+  • Performance dashboard
+
+Best for:
+  "Sales teams getting 50+ leads/month who need faster response times 
+   and better qualification."
+
+Pricing:
+  "From $5,000 setup + $1,500/month"
+
+CTA: "Book a Discovery Call →" → CalendlyModal
+
+----- SERVICE 2: Smart Support Automation -----
+id="support-automation"
+
+What it does:
+  "AI agent that handles customer support tickets, answers FAQs instantly, 
+   and routes complex issues to the right team member."
+
+What's included:
+  • AI chatbot (website + email)
+  • Knowledge base integration
+  • Ticket classification & routing
+  • Escalation rules
+  • Multi-language support
+  • Response templates
+  • Analytics dashboard
+
+Best for:
+  "Support teams handling 100+ tickets/week with repetitive questions."
+
+Pricing:
+  "From $8,000 setup + $2,000/month"
+
+CTA: "Book a Discovery Call →" → CalendlyModal
+
+----- SERVICE 3: Document & Data Processing -----
+id="document-processing"
+
+What it does:
+  "Extract data from documents, process forms, validate information, 
+   and sync across all your systems automatically."
+
+What's included:
+  • OCR + AI data extraction
+  • Document classification
+  • Validation rules & error handling
+  • Database sync (any system)
+  • Processing dashboard
+  • Audit trail logging
+
+Best for:
+  "Teams processing contracts, invoices, applications, or forms manually."
+
+Pricing:
+  "From $6,000 setup + $1,000/month"
+
+CTA: "Book a Discovery Call →" → CalendlyModal
+
+----- SERVICE 4: Custom AI Workflows -----
+id="custom-workflows"
+
+What it does:
+  "Bespoke automation for unique business processes that don't fit 
+   standard solutions."
+
+What's included:
+  • Discovery & process mapping
+  • Custom workflow design
+  • Full build & testing
+  • Integrations (unlimited)
+  • Team training
+  • 90-day support
+
+Best for:
+  "Complex workflows that require custom logic or unusual tool combinations."
+
+Pricing:
+  "Custom quote starting at $10,000"
+
+CTA: "Book a Discovery Call →" → CalendlyModal
+
+----- FINAL CTA -----
+Same as homepage final CTA
+
+================================================================================
+SECTION 7: ABOUT PAGE (/about)
+================================================================================
+
+----- HERO -----
+Headline: "About AutoMeit"
+Subheadline: "We exist to eliminate the work that shouldn't exist."
+
+----- OUR STORY -----
+Brief narrative (2-3 paragraphs):
+  "We started AutoMeit because we saw too many talented teams buried in 
+   repetitive tasks that machines should handle. Every hour spent on manual 
+   data entry or copy-paste workflows is an hour not spent on strategy, 
+   creativity, or growth.
+
+   Our mission is simple: identify the busywork that's killing productivity 
+   and replace it with intelligent systems that work 24/7.
+
+   We're not here to sell you software. We're here to solve problems."
+
+----- OUR APPROACH -----
+3 values cards:
+
+Card 1: "Speed Over Perfection"
+  "We ship fast, iterate faster. You see results in days, not months."
+
+Card 2: "Systems Over Projects"
+  "We build repeatable, scalable systems — not one-off custom work that 
+   breaks when we leave."
+
+Card 3: "ROI Over Features"
+  "Every automation must pay for itself. If it doesn't save time or money, 
+   we don't build it."
+
+----- TEAM (Placeholder) -----
+"Meet the Team"
+2-3 placeholder team member cards:
+  - Avatar placeholder (gray circle)
+  - Name
+  - Role
+  - One-line bio
+
+----- CTA -----
+"Want to work with us?" → CalendlyModal
+
+================================================================================
+SECTION 8: CONTACT PAGE (/contact)
+================================================================================
+
+Layout: Two columns on desktop
+
+----- LEFT COLUMN -----
+Headline: "Let's Talk Automation"
+Subheadline: "Tell us about your biggest operational bottleneck and we'll 
+              show you how to fix it."
+
+Contact info:
+  Email: hello@automeit.ai
+  Response time: "We respond within 24 hours"
+
+Alternative:
+  "Prefer to talk?"
+  "Book a call directly →" → CalendlyModal
+
+----- RIGHT COLUMN -----
+Contact Form:
+  Fields:
+    - Name (text, required)
+    - Email (email, required, validated)
+    - Company (text, required)
+    - "What's your biggest operational bottleneck?" (textarea, required)
+  
+  Button: "Send Message"
+  
+  States:
+    - Default: Button enabled
+    - Loading: Button disabled, spinner, "Sending..."
+    - Success: Green checkmark, "Message sent! We'll be in touch within 24 hours."
+    - Error: Red alert, "Something went wrong. Please try again or email us directly."
+
+Form submits to /api/contact (POST)
+
+================================================================================
+SECTION 9: API ROUTES
+================================================================================
+
+----- /api/contact/route.ts -----
+````typescript
+import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
+
+// Validation schema
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  company: z.string().min(1, "Company is required"),
+  message: z.string().min(10, "Please provide more detail about your needs"),
+});
+
+// Simple in-memory rate limiting (replace with Redis in production)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT = 5;
+const RATE_WINDOW = 15 * 60 * 1000; // 15 minutes
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_WINDOW });
+    return false;
+  }
+  
+  if (record.count >= RATE_LIMIT) {
+    return true;
+  }
+  
+  record.count++;
+  return false;
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    // Rate limiting
+    const ip = request.headers.get('x-forwarded-for') || 'unknown';
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      );
+    }
+
+    const body = await request.json();
+    
+    // Validate
+    const result = contactSchema.safeParse(body);
+    if (!result.success) {
+      return NextResponse.json(
+        { error: result.error.errors[0].message },
+        { status: 400 }
+      );
+    }
+
+    const { name, email, company, message } = result.data;
+
+    // Log submission (replace with email service like Resend in production)
+    console.log('=== NEW CONTACT SUBMISSION ===');
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Company:', company);
+    console.log('Message:', message);
+    console.log('Timestamp:', new Date().toISOString());
+    console.log('==============================');
+
+    // TODO: Replace with actual email sending
+    // Example with Resend:
+    // await resend.emails.send({
+    //   from: 'AutoMeit <noreply@automeit.ai>',
+    //   to: 'hello@automeit.ai',
+    //   subject: `New contact from ${name} at ${company}`,
+    //   text: `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\nMessage:\n${message}`,
+    // });
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error('Contact form error:', error);
+    return NextResponse.json(
+      { error: 'Something went wrong. Please try again.' },
+      { status: 500 }
+    );
+  }
+}
+````
+
+----- /api/checklist/route.ts -----
+````typescript
+import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
+
+const checklistSchema = z.object({
+  email: z.string().email("Invalid email address"),
+});
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    
+    const result = checklistSchema.safeParse(body);
+    if (!result.success) {
+      return NextResponse.json(
+        { error: result.error.errors[0].message },
+        { status: 400 }
+      );
+    }
+
+    const { email } = result.data;
+
+    // Log email capture (replace with email service in production)
+    console.log('=== CHECKLIST DOWNLOAD ===');
+    console.log('Email:', email);
+    console.log('Timestamp:', new Date().toISOString());
+    console.log('==========================');
+
+    // TODO: Send actual email with checklist PDF
+    // TODO: Add to email list (ConvertKit, Mailchimp, etc.)
+
+    return NextResponse.json({ 
+      success: true,
+      message: "Check your inbox! The checklist is on its way."
+    });
+  } catch (error) {
+    console.error('Checklist form error:', error);
+    return NextResponse.json(
+      { error: 'Something went wrong. Please try again.' },
+      { status: 500 }
+    );
+  }
+}
+````
+
+================================================================================
+SECTION 10: COMPONENTS SPECIFICATIONS
+================================================================================
+
+----- Navbar.tsx -----
+- Sticky (fixed top-0)
+- Transparent initially, bg-gray-900/80 backdrop-blur on scroll
+- Logo left, nav links center (desktop), CTA right
+- Mobile: hamburger icon triggers MobileNav drawer
+- Active link indicator
+
+----- MobileNav.tsx -----
+- Slide-in drawer from right
+- Full height overlay
+- When open: document.body.style.overflow = 'hidden'
+- When closed: document.body.style.overflow = ''
+- Close on link click
+- Close on overlay click
+- Close on escape key
+
+----- CalendlyModal.tsx -----
+````typescript
+'use client';
+
+import { PopupWidget } from 'react-calendly';
+import { CALENDLY_LINK } from '@/lib/constants';
+
+export default function CalendlyModal({ 
+  children, 
+  className 
+}: { 
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <PopupWidget
+      url={CALENDLY_LINK}
+      rootElement={document.body}
+      text={children as string}
+      className={className}
+    />
+  );
+}
+````
+
+----- StickyMobileCTA.tsx -----
+- Fixed bottom-0 on viewport < 768px
+- Full width bar with padding
+- "Book Free Audit" button
+- bg-gray-900/95 backdrop-blur border-t border-white/10
+- Opens CalendlyModal
+- Hide when user scrolls to footer (use Intersection Observer)
+
+----- Analytics.tsx -----
+````typescript
+'use client';
+
+import Script from 'next/script';
+
+export default function Analytics() {
+  if (process.env.NODE_ENV !== 'production') return null;
+  if (!process.env.NEXT_PUBLIC_ANALYTICS) return null;
+
+  return (
+    <Script
+      defer
+      data-domain="automeit.ai"
+      src="https://plausible.io/js/script.js"
+    />
+  );
+}
+````
+
+================================================================================
+SECTION 11: SEO & METADATA
+================================================================================
+
+----- app/layout.tsx -----
+````typescript
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import StickyMobileCTA from '@/components/StickyMobileCTA';
+import Analytics from '@/components/Analytics';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://automeit.ai'),
+  title: {
+    default: 'AutoMeit.ai | AI Automation Systems for Growing Businesses',
+    template: '%s | AutoMeit.ai',
+  },
+  description: 'Eliminate 10-20+ hours of manual work per week with AI-powered automation. We build intelligent systems that qualify leads, handle support, and process documents automatically.',
+  keywords: ['AI automation', 'business automation', 'workflow automation', 'lead qualification', 'customer support automation'],
+  authors: [{ name: 'AutoMeit.ai' }],
+  creator: 'AutoMeit.ai',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://automeit.ai',
+    siteName: 'AutoMeit.ai',
+    title: 'AutoMeit.ai | AI Automation Systems for Growing Businesses',
+    description: 'Eliminate 10-20+ hours of manual work per week with AI-powered automation.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'AutoMeit.ai - AI Automation',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AutoMeit.ai | AI Automation Systems',
+    description: 'Eliminate 10-20+ hours of manual work per week with AI-powered automation.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.className} bg-[#0a0f1c] text-gray-100 antialiased`}>
+        <Analytics />
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <StickyMobileCTA />
+      </body>
+    </html>
+  );
+}
+````
+
+----- app/sitemap.ts -----
+````typescript
+import { MetadataRoute } from 'next';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://automeit.ai';
+  
+  return [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/services`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+  ];
+}
+````
+
+----- app/robots.ts -----
+````typescript
+import { MetadataRoute } from 'next';
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: '*',
+      allow: '/',
+      disallow: '/api/',
+    },
+    sitemap: 'https://automeit.ai/sitemap.xml',
+  };
+}
+````
+
+----- app/not-found.tsx -----
+````typescript
+import Link from 'next/link';
+
+export default function NotFound() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-[#0a0f1c]">
+      <div className="text-center">
+        <h1 className="text-6xl font-bold text-gray-100 mb-4">404</h1>
+        <h2 className="text-2xl font-semibold text-gray-300 mb-4">Page Not Found</h2>
+        <p className="text-gray-400 mb-8">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <Link
+          href="/"
+          className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 
+                     text-white font-semibold rounded-lg transition-colors"
+        >
+          Back to Home
+        </Link>
+      </div>
+    </div>
+  );
+}
+````
+
+================================================================================
+SECTION 12: PUBLIC ASSETS
+================================================================================
+
+Create these files in /public:
+
+----- manifest.json -----
+````json
+{
+  "name": "AutoMeit.ai",
+  "short_name": "AutoMeit",
+  "description": "AI Automation Systems for Growing Businesses",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0f1c",
+  "theme_color": "#0a0f1c",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+````
+
+For favicon and icons:
+- Generate a simple "A" lettermark or lightning bolt icon
+- Use colors: #3b82f6 (blue) on transparent or dark background
+- Create: favicon.ico (32x32), apple-touch-icon.png (180x180), icon-192.png, icon-512.png
+
+For og-image.png:
+- 1200x630 pixels
+- Dark background (#0a0f1c)
+- "AutoMeit.ai" logo/text
+- Tagline: "AI Automation Systems"
+- Abstract geometric shapes in blue/purple
+
+================================================================================
+SECTION 13: ENVIRONMENT VARIABLES
+================================================================================
+
+Create .env.example:
+Calendly
+NEXT_PUBLIC_CALENDLY_LINK=https://calendly.com/automeit/audit
+Analytics (set to "true" to enable)
+NEXT_PUBLIC_ANALYTICS=
+Future: Email service
+RESEND_API_KEY=
+
+================================================================================
+SECTION 14: PERFORMANCE REQUIREMENTS
+================================================================================
+
+HARD LIMITS:
+- First Load JS: ≤ 95 kB
+- Largest Contentful Paint: < 2.5s
+- First Input Delay: < 100ms
+- Cumulative Layout Shift: < 0.1
+- Lighthouse Performance Score: 90+
+- Lighthouse Accessibility Score: 95+
+- Lighthouse Best Practices: 100
+
+OPTIMIZATIONS TO IMPLEMENT:
+1. Hero image: priority={true}, width ≤ 1920, quality 80, format webp
+2. Lazy load all sections below the fold
+3. Use next/image for all images
+4. Framer Motion: wrap in LazyMotion for code splitting
+5. Respect prefers-reduced-motion: disable animations
+6. No external fonts beyond Inter
+7. No third-party chat widgets
+8. Minimize client components (use 'use client' sparingly)
+
+================================================================================
+SECTION 15: FINAL CHECKS BEFORE DELIVERY
+================================================================================
+
+RUN THESE CHECKS:
+
+□ npm run build completes with zero errors
+□ npm run lint returns zero warnings
+□ No console.log statements in production code
+□ All pages render correctly on mobile (375px), tablet (768px), desktop (1440px)
+□ All CTAs open Calendly modal
+□ Contact form submits successfully (check terminal logs)
+□ Checklist form submits successfully
+□ Mobile nav opens/closes, locks body scroll
+□ All internal links work
+□ 404 page displays correctly
+□ Favicon appears in browser tab
+□ OG image loads when URL is shared (test with social media debuggers)
+□ Lighthouse scores meet targets
+□ All animations respect prefers-reduced-motion
+□ Smooth scroll works for anchor links
+□ Services page anchors (#lead-intelligence, etc.) scroll correctly
+
+================================================================================
+SECTION 16: README.md CONTENT
+================================================================================
+
+Create this README:
+````markdown
+# AutoMeit.ai Website
+
+Production-ready marketing website for AutoMeit.ai - AI automation agency.
+
+## Quick Start
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+## Configuration
+
+### Calendly Link
+Replace the placeholder Calendly link in one of two ways:
+
+1. **Environment variable (recommended):**
+````
+   NEXT_PUBLIC_CALENDLY_LINK=https://calendly.com/your-actual-link
+
+Direct edit:
+Update lib/constants.ts → CALENDLY_LINK
+
+Analytics
+To enable Plausible analytics:
+NEXT_PUBLIC_ANALYTICS=true
+Email Service
+The contact form currently logs to console. To enable real emails:
+
+Sign up for Resend
+Add RESEND_API_KEY to environment
+Uncomment the Resend code in /api/contact/route.ts
+
+Customization
+Replace Placeholder Content
+
+Testimonials: lib/constants.ts → TESTIMONIALS
+Team photos: Add to /public and update /about/page.tsx
+Client logos: Add to /public and update Testimonials.tsx
+OG Image: Replace /public/og-image.png (1200x630)
+
+Colors
+All colors defined in tailwind.config.ts and globals.css
+Deployment
+Vercel (Recommended)
+
+Push to GitHub
+Import in Vercel
+Add environment variables
+Deploy
+
+Other Platforms
+bashnpm run build
+npm start
+````
+
+## Performance Targets
+- Lighthouse Performance: 90+
+- Lighthouse Accessibility: 95+
+- First Load JS: < 95kB
+
+## Hand-off Checklist
+- [ ] Replace Calendly link
+- [ ] Add real testimonials
+- [ ] Add team photos
+- [ ] Add client logos
+- [ ] Create custom OG image
+- [ ] Set up email service
+- [ ] Enable analytics
+- [ ] Test all forms
+- [ ] Verify mobile experience
+````
+
+================================================================================
+END OF SPECIFICATION
+================================================================================
+
+Build this complete application now. Do not skip any sections. Do not use 
+placeholder components that need to be "filled in later." Every component 
+must be fully functional.
+
+When complete, confirm:
+1. All pages are built and routed correctly
+2. All forms work (check terminal for logs)
+3. Calendly modal opens on all CTAs
+4. Mobile navigation works with body scroll lock
+5. Build completes with zero errors
+
+Begin building now.
