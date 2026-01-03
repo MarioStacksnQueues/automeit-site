@@ -1,37 +1,35 @@
-import { type User, type InsertUser } from "@shared/schema";
-import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
+import { contactSubmissions, checklistRequests, type InsertContact, type ContactSubmission, type InsertChecklist, type ChecklistRequest } from "@shared/schema";
 
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  createContactSubmission(contact: InsertContact): Promise<ContactSubmission>;
+  createChecklistRequest(request: InsertChecklist): Promise<ChecklistRequest>;
 }
 
 export class MemStorage implements IStorage {
-  private users: Map<string, User>;
+  private contacts: Map<number, ContactSubmission>;
+  private checklists: Map<number, ChecklistRequest>;
+  private currentContactId: number;
+  private currentChecklistId: number;
 
   constructor() {
-    this.users = new Map();
+    this.contacts = new Map();
+    this.checklists = new Map();
+    this.currentContactId = 1;
+    this.currentChecklistId = 1;
   }
 
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+  async createContactSubmission(insertContact: InsertContact): Promise<ContactSubmission> {
+    const id = this.currentContactId++;
+    const contact: ContactSubmission = { ...insertContact, id, createdAt: new Date() };
+    this.contacts.set(id, contact);
+    return contact;
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async createChecklistRequest(insertChecklist: InsertChecklist): Promise<ChecklistRequest> {
+    const id = this.currentChecklistId++;
+    const request: ChecklistRequest = { ...insertChecklist, id, createdAt: new Date() };
+    this.checklists.set(id, request);
+    return request;
   }
 }
 
