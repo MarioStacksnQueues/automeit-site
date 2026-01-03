@@ -10,7 +10,8 @@ import { Mail, MapPin, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const WEB3FORMS_ACCESS_KEY = "7f554289-1f6d-4deb-9b5f-232bb5b90a9d";
+// Your Formspree form ID
+const FORMSPREE_FORM_ID = "mkogqkzr";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,42 +32,34 @@ export default function Contact() {
     setStatusMsg(null);
 
     try {
-      // Web3Forms expects FormData or JSON. We'll use JSON.
-      const payload = {
-        access_key: WEB3FORMS_ACCESS_KEY,
-        subject: "New Contact Form Submission — AutoMeit.ai",
-        from_name: "AutoMeit.ai Website",
-        // Your fields:
-        name: data.name,
-        email: data.email,
-        company: data.company,
-        message: data.message,
-
-        // Optional metadata:
-        page: "Contact Page",
-      };
-
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          company: data.company,
+          message: data.message,
+          _subject: "New Contact Form Submission — AutoMeit.ai",
+        }),
       });
 
-      const json = await res.json().catch(() => null);
-
-      if (!res.ok || !json?.success) {
+      if (res.ok) {
+        setStatusMsg({
+          type: "success",
+          text: "Message sent! We'll get back to you within 1 business day.",
+        });
+        form.reset();
+      } else {
+        const json = await res.json().catch(() => ({}));
         setStatusMsg({
           type: "error",
-          text: json?.message || "Something went wrong. Please try again.",
+          text: json?.error || "Something went wrong. Please try again.",
         });
-        return;
       }
-
-      setStatusMsg({
-        type: "success",
-        text: "Message sent! We’ll get back to you within 1 business day.",
-      });
-      form.reset();
     } catch (err) {
       setStatusMsg({
         type: "error",
