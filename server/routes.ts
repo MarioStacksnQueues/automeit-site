@@ -11,7 +11,7 @@ const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
   console.warn(
-    "⚠️ Missing Supabase env vars. Check Replit Secrets: SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY",
+    "Missing Supabase env vars. Check Replit Secrets: SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY",
   );
 }
 
@@ -46,36 +46,32 @@ export async function registerRoutes(
     try {
       const input = api.checklist.request.input.parse(req.body);
 
-      // 1) Save to your existing storage (keep this)
+      // 1) Save to your existing storage
       await storage.createChecklistRequest(input);
 
-      // 2) ALSO save lead email to Supabase (server-side)
+      // 2) Save lead email to Supabase
       const email = String((input as any).email || "")
         .trim()
         .toLowerCase();
 
       if (email && email.includes("@") && supabase) {
-        // TEMP LOG (remove later)
-        console.log("✅ Checklist lead captured:", email);
-
         const { error } = await supabase
           .from("leads")
           .insert([{ email, source: "checklist", status: "new" }]);
 
-        // Ignore duplicates, report real errors
+        // Ignore duplicates, fail only on real errors
         if (error) {
           const msg = (error.message || "").toLowerCase();
-          const isDuplicate =
-            msg.includes("duplicate") ||
-            msg.includes("unique") ||
-            msg.includes("already exists");
-
-          if (!isDuplicate) {
-            console.error("❌ Supabase insert error:", error);
+          if (
+            !msg.includes("duplicate") &&
+            !msg.includes("unique") &&
+            !msg.includes("already exists")
+          ) {
+            console.error("Supabase insert error:", error);
           }
         }
       } else if (!supabase) {
-        console.warn("⚠️ Supabase client not initialized (missing env vars).");
+        console.warn("Supabase client not initialized (missing env vars).");
       }
 
       return res

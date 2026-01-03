@@ -114,7 +114,7 @@ export function Navbar() {
       </AnimatePresence>
 
       <PopupModal
-        url="https://calendly.com/"
+        url="https://calendly.com/automeit-hr/free-automation-audit"
         onModalClose={() => setIsCalendlyOpen(false)}
         open={isCalendlyOpen}
         rootElement={document.getElementById("root")!}

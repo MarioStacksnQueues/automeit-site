@@ -19,32 +19,104 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              We build intelligent automation systems that free teams from repetitive work. Scale your operations without scaling headcount.
+              We build intelligent automation systems that free teams from
+              repetitive work. Scale your operations without scaling headcount.
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors"><Twitter size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors"><Github size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors"><Linkedin size={20} /></a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Twitter size={20} />
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Github size={20} />
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Linkedin size={20} />
+              </a>
             </div>
           </div>
 
           <div>
             <h4 className="font-semibold text-white mb-6">Services</h4>
             <ul className="space-y-3 text-sm text-gray-400">
-              <li><Link href="/services" className="hover:text-blue-400 transition-colors">Lead Intelligence</Link></li>
-              <li><Link href="/services" className="hover:text-blue-400 transition-colors">Support Automation</Link></li>
-              <li><Link href="/services" className="hover:text-blue-400 transition-colors">Document Processing</Link></li>
-              <li><Link href="/services" className="hover:text-blue-400 transition-colors">Custom Workflows</Link></li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Lead Intelligence
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Support Automation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Document Processing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Custom Workflows
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold text-white mb-6">Company</h4>
             <ul className="space-y-3 text-sm text-gray-400">
-              <li><Link href="/about" className="hover:text-blue-400 transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-blue-400 transition-colors">Contact</Link></li>
-              <li><Link href="/privacy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-blue-400 transition-colors">Terms of Service</Link></li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Terms of Service
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -53,10 +125,15 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-blue-500" />
-                <a href="mailto:Automeit.hr@gmail.com" className="hover:text-white transition-colors">Automeit.hr@gmail.com</a>
+                <a
+                  href="mailto:Automeit.hr@gmail.com"
+                  className="hover:text-white transition-colors"
+                >
+                  Automeit.hr@gmail.com
+                </a>
               </li>
               <li className="text-gray-500 text-xs mt-4">
-                Available for new projects starting Q4 2026.
+                Now accepting new projects.
               </li>
             </ul>
           </div>
@@ -67,8 +144,18 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p>&copy; {currentYear} AutoMeit.ai. All rights reserved.</p>
           <div className="flex gap-8">
-            <Link href="/privacy" className="hover:text-gray-300 transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-gray-300 transition-colors">Terms</Link>
+            <Link
+              href="/privacy"
+              className="hover:text-gray-300 transition-colors"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/terms"
+              className="hover:text-gray-300 transition-colors"
+            >
+              Terms
+            </Link>
           </div>
         </div>
       </div>
