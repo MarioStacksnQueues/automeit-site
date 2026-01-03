@@ -8,7 +8,7 @@ export default function Terms() {
       <div className="container mx-auto px-4 md:px-6 pt-32 pb-24">
         <div className="max-w-3xl mx-auto prose prose-invert">
           <h1 className="text-4xl font-bold text-white mb-8">Terms of Service</h1>
-          <p className="text-gray-400 mb-6">Last updated: October 2024</p>
+          <p className="text-gray-400 mb-6">Last updated: October 2026</p>
           
           <div className="space-y-6 text-gray-300">
             <p>By accessing or using the AutoMeit.ai website, you agree to be bound by these Terms of Service.</p>

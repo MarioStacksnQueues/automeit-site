@@ -8,7 +8,7 @@ export default function Privacy() {
       <div className="container mx-auto px-4 md:px-6 pt-32 pb-24">
         <div className="max-w-3xl mx-auto prose prose-invert">
           <h1 className="text-4xl font-bold text-white mb-8">Privacy Policy</h1>
-          <p className="text-gray-400 mb-6">Last updated: October 2024</p>
+          <p className="text-gray-400 mb-6">Last updated: October 2026</p>
           
           <div className="space-y-6 text-gray-300">
             <p>At AutoMeit.ai, we take your privacy seriously. This policy describes how we collect and use your data.</p>

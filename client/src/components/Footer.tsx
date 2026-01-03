@@ -53,10 +53,10 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-blue-500" />
-                <a href="mailto:hello@automeit.ai" className="hover:text-white transition-colors">hello@automeit.ai</a>
+                <a href="mailto:Automeit.hr@gmail.com" className="hover:text-white transition-colors">Automeit.hr@gmail.com</a>
               </li>
               <li className="text-gray-500 text-xs mt-4">
-                Available for new projects starting Q4 2024.
+                Available for new projects starting Q4 2026.
               </li>
             </ul>
           </div>
