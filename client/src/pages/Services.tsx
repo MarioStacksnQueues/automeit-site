@@ -133,7 +133,7 @@ export default function Services() {
 
       <Footer />
       <PopupModal
-        url=""https://calendly.com/automeit-hr/free-automation-audit"
+        url="https://calendly.com/automeit-hr/free-automation-audit"
         onModalClose={() => setIsCalendlyOpen(false)}
         open={isCalendlyOpen}
         rootElement={document.getElementById("root")!}
