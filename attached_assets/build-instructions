@@ -1,20 +1,9 @@
-COPY EVERYTHING BELOW THIS LINE
 ================================================================================
 AUTOMEIT.AI — PRODUCTION WEBSITE BUILD SPECIFICATION
 ================================================================================
 
-ROLE
-You are a senior product engineer and designer building a production-ready 
-marketing website for an AI automation agency called AutoMeit.ai. 
-Build the full site end-to-end with zero placeholder logic or TODO comments.
-
-GOAL
-Create a fast, modern, dark-mode-first, conversion-focused website where 
-clients can clearly understand offers and book a call or submit a contact form. 
-The site must be deployable immediately after build completes.
-
 ================================================================================
-SECTION 1: TECH STACK (DO NOT DEVIATE)
+SECTION 1: TECH STACK
 ================================================================================
 
 Framework:       Next.js 14+ (App Router) + TypeScript
@@ -26,11 +15,6 @@ Forms:           React Hook Form + Zod validation
 Calendly:        react-calendly (PopupWidget for modal)
 SEO:             Next.js App Router metadata API
 
-DO NOT USE:
-- Heavy UI component libraries (no shadcn, no MUI, no Chakra)
-- Canvas-based animations or Three.js
-- External CSS frameworks beyond Tailwind
-- Any database or auth at this stage
 
 ================================================================================
 SECTION 2: PROJECT STRUCTURE (CREATE EXACTLY THIS)
@@ -648,7 +632,7 @@ Build these sections IN THIS EXACT ORDER:
   Column 1: 
     - AutoMeit.ai logo
     - Tagline: "AI automation for growing businesses"
-    - Email: hello@automeit.ai
+    - Email: automeit.hr@gmail.com
   
   Column 2: "Company"
     - About, Services, Contact (links)
@@ -833,7 +817,7 @@ Subheadline: "Tell us about your biggest operational bottleneck and we'll
               show you how to fix it."
 
 Contact info:
-  Email: hello@automeit.ai
+  Email: automeit.hr@gmail.com
   Response time: "We respond within 24 hours"
 
 Alternative:
