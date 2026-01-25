@@ -137,7 +137,7 @@ export default function SupportVisualization() {
 
                 {/* Label */}
                 <motion.span
-                  className="text-sm font-semibold text-white mb-1"
+                  className="text-sm font-semibold text-white mb-1 whitespace-nowrap"
                   animate={{
                     color: activeStep >= index ? '#ffffff' : 'rgba(255,255,255,0.4)',
                   }}
@@ -147,7 +147,7 @@ export default function SupportVisualization() {
                 
                 {/* Description */}
                 <motion.span
-                  className="text-xs text-gray-500 text-center max-w-[100px]"
+                  className="text-xs text-gray-500 text-center whitespace-nowrap"
                   animate={{
                     color: activeStep >= index ? 'rgba(156,163,175,1)' : 'rgba(156,163,175,0.4)',
                   }}
