@@ -350,8 +350,8 @@ export default function CustomWorkflowVisualization() {
             <p className="text-xs text-gray-500">Custom Logic</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-cyan-400">0</p>
-            <p className="text-xs text-gray-500">Code Required</p>
+            <p className="text-2xl font-bold text-cyan-400">100%</p>
+            <p className="text-xs text-gray-500">Custom Built</p>
           </div>
         </motion.div>
       </div>
