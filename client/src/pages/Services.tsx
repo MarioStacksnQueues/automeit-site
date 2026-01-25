@@ -25,11 +25,16 @@ export default function Services() {
       features: ["Call + SMS Handling", "Cart Creation (POS/API)", "Pay-by-Link Checkout", "Live Transfer / Human Handoff"]
     },
     {
-      id: "doc-processing",
-      icon: <FileText className="w-12 h-12 text-cyan-400" />,
-      title: "Intelligent Document Processing",
-      description: "Turn unstructured PDFs into structured data. Extract information from invoices, contracts, resumes, and forms directly into your database.",
-      features: ["OCR + LLM Extraction", "Contract Analysis", "Invoice Automation", "Data Validation & Formatting"]
+      id: "ai-customer-support",
+      icon: <MessageCircle className="w-12 h-12 text-cyan-400" />,
+      title: "AI Customer Support Automation",
+      description:
+        "Resolve customer questions instantly, reduce ticket volume, and route complex issues to a human—so support stays fast even after hours.",
+      features: [
+        "Helpdesk Integration (Intercom/Zendesk)",
+        "FAQ + Knowledge Base Training",
+        "Smart Routing + Human Handoff",
+        "24/7 Responses + Audit Logs",]
     },
     {
       id: "custom-workflows",
