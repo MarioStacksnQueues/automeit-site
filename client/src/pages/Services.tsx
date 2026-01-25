@@ -22,7 +22,7 @@ export default function Services() {
       title: "Lead Intelligence & Outreach",
       description: "Stop manually researching leads. We build systems that scrape data, enrich profiles, score leads, and draft hyper-personalized outreach sequences.",
       features: ["LinkedIn & Web Scraping", "Data Enrichment (Clearbit/Apollo)", "AI Personalized Email Drafting", "CRM Sync (HubSpot/Salesforce)"],
-      visualization: <WorkflowVisualization />
+      visualization: <LeadIntelligenceVisualization />
     },
     {
       id: "ai-receptionist",
