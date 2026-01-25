@@ -42,23 +42,26 @@ export function useRequestChecklist() {
 
   return useMutation({
     mutationFn: async (data: InsertChecklist) => {
-      const res = await fetch(api.checklist.request.path, {
-        method: api.checklist.request.method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+      // Using Formspree instead of internal API
+      const res = await fetch("https://formspree.io/f/mkogqkzr", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({ email: data.email }),
       });
 
       if (!res.ok) {
-        const error = await res.json();
-        throw new Error(error.message || "Failed to request checklist");
+        throw new Error("Failed to request checklist");
       }
 
       return await res.json();
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast({
         title: "Checklist on the way!",
-        description: data.message || "Check your email inbox soon.",
+        description: "Check your email inbox soon.",
       });
     },
     onError: (error: Error) => {
