@@ -7,7 +7,7 @@ import { useState } from "react";
 import { PopupModal } from "react-calendly";
 
 // Import the visualization components
-import WorkflowVisualization from "@/components/WorkflowVisualization";
+import LeadIntelligenceVisualization from "@/components/LeadIntelligenceVisualization";
 import ReceptionistVisualization from "@/components/ReceptionistVisualization";
 import SupportVisualization from "@/components/SupportVisualization";
 import CustomWorkflowVisualization from "@/components/CustomWorkflowVisualization";
