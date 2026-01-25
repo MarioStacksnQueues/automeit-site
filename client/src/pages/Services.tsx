@@ -18,11 +18,11 @@ export default function Services() {
       features: ["LinkedIn & Web Scraping", "Data Enrichment (Clearbit/Apollo)", "AI Personalized Email Drafting", "CRM Sync (HubSpot/Salesforce)"]
     },
     {
-      id: "support-automation",
+      id: "ai-receptionist",
       icon: <Bot className="w-12 h-12 text-purple-400" />,
-      title: "Customer Support Automation",
-      description: "Deflect 60-80% of repetitive tickets. We deploy AI agents trained on your knowledge base that can answer questions, process refunds, and modify orders.",
-      features: ["Intercom/Zendesk Integration", "Custom Knowledge Base Training", "Human Handoff Protocols", "24/7 Instant Responses"]
+      title: "AI Receptionist + Order Capture",
+      description: "Answer calls and texts 24/7, build carts in real time, send payment links, and route urgent requests—so you never miss revenue.",
+      features: ["Call + SMS Handling", "Cart Creation (POS/API)", "Pay-by-Link Checkout", "Live Transfer / Human Handoff"]
     },
     {
       id: "doc-processing",
