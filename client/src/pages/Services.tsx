@@ -56,7 +56,7 @@ export default function Services() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div id="top" className="min-h-screen bg-background">
       <Navbar />
       
       <section className="pt-32 pb-20 relative overflow-hidden">
