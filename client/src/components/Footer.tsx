@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail, Instagram } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 export function Footer() {
@@ -18,16 +18,43 @@ export function Footer() {
                 AutoMeit<span className="text-blue-500">.ai</span>
               </span>
             </Link>
+
             <p className="text-gray-400 text-sm leading-relaxed">
               We build intelligent automation systems that free teams from
               repetitive work. Scale your operations without scaling headcount.
             </p>
+
+            <div className="flex items-center gap-4">
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/automeit.ai/?hl=en"
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="www.linkedin.com/in/mario-cuevas-b26421232"
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} />
+              </a>
+            </div>
+          </div>
+
           <div>
             <h4 className="font-semibold text-white mb-6">Services</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
                 <Link
-                  href="/services#top"
+                  href="/services"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Lead Intelligence
@@ -35,7 +62,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services#top"
+                  href="/services"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Support Automation
@@ -43,7 +70,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services#top"
+                  href="/services"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Document Processing
@@ -51,7 +78,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services#top"
+                  href="/services"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Custom Workflows
@@ -65,7 +92,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
                 <Link
-                  href="/about#top"
+                  href="/about"
                   className="hover:text-blue-400 transition-colors"
                 >
                   About Us
@@ -73,7 +100,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact#top"
+                  href="/contact"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Contact
@@ -81,7 +108,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/privacy#top"
+                  href="/privacy"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Privacy Policy
@@ -89,7 +116,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/terms#top"
+                  href="/terms"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Terms of Service
@@ -103,12 +130,13 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-blue-500" />
-                <a
+                {/* Goes to top of Contact page */}
+                <Link
                   href="/contact#top"
                   className="hover:text-white transition-colors"
                 >
                   Automeit.hr@gmail.com
-                </a>
+                </Link>
               </li>
               <li className="text-gray-500 text-xs mt-4">
                 Now accepting new projects.
@@ -140,3 +168,4 @@ export function Footer() {
     </footer>
   );
 }
+
