@@ -22,34 +22,12 @@ export function Footer() {
               We build intelligent automation systems that free teams from
               repetitive work. Scale your operations without scaling headcount.
             </p>
-            <div className="flex items-center gap-4">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Twitter size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Github size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Linkedin size={20} />
-              </a>
-            </div>
-          </div>
-
           <div>
             <h4 className="font-semibold text-white mb-6">Services</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
                 <Link
-                  href="/services"
+                  href="/services#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Lead Intelligence
@@ -57,7 +35,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/services#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Support Automation
@@ -65,7 +43,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/services#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Document Processing
@@ -73,7 +51,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/services#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Custom Workflows
@@ -87,7 +65,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
                 <Link
-                  href="/about"
+                  href="/about#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   About Us
@@ -95,7 +73,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/contact#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Contact
@@ -103,7 +81,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/privacy"
+                  href="/privacy#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Privacy Policy
@@ -111,7 +89,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href="/terms#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Terms of Service
@@ -126,7 +104,7 @@ export function Footer() {
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-blue-500" />
                 <a
-                  href="mailto:Automeit.hr@gmail.com"
+                  href="/contact#top"
                   className="hover:text-white transition-colors"
                 >
                   Automeit.hr@gmail.com
