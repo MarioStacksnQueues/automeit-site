@@ -10,7 +10,7 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/#top" className="flex items-center gap-2 group">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
                 A
               </div>
@@ -38,7 +38,7 @@ export function Footer() {
 
               {/* LinkedIn */}
               <a
-                href="www.linkedin.com/in/mario-cuevas-b26421232"
+                href="https://www.linkedin.com/in/mario-cuevas-b26421232/"
                 target="_blank"
                 rel="noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -54,7 +54,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
                 <Link
-                  href="/services"
+                  href="/services#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Lead Intelligence
@@ -62,7 +62,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/services#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Support Automation
@@ -70,7 +70,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/services#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Document Processing
@@ -78,7 +78,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/services#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Custom Workflows
@@ -92,7 +92,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
                 <Link
-                  href="/about"
+                  href="/about#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   About Us
@@ -100,7 +100,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/contact#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Contact
@@ -108,7 +108,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/privacy"
+                  href="/privacy#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Privacy Policy
@@ -116,7 +116,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href="/terms#top"
                   className="hover:text-blue-400 transition-colors"
                 >
                   Terms of Service
@@ -130,7 +130,6 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-blue-500" />
-                {/* Goes to top of Contact page */}
                 <Link
                   href="/contact#top"
                   className="hover:text-white transition-colors"
@@ -151,13 +150,13 @@ export function Footer() {
           <p>&copy; {currentYear} AutoMeit.ai. All rights reserved.</p>
           <div className="flex gap-8">
             <Link
-              href="/privacy"
+              href="/privacy#top"
               className="hover:text-gray-300 transition-colors"
             >
               Privacy
             </Link>
             <Link
-              href="/terms"
+              href="/terms#top"
               className="hover:text-gray-300 transition-colors"
             >
               Terms
@@ -168,4 +167,3 @@ export function Footer() {
     </footer>
   );
 }
-
