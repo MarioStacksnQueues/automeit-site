@@ -302,7 +302,7 @@ export default function Home() {
                 Starter
               </h3>
               <div className="text-4xl font-bold text-white mb-4">
-                $3,500
+                $2,500
                 <span className="text-lg font-normal text-gray-500">
                   {" "}
                   one-time
@@ -314,8 +314,9 @@ export default function Home() {
               <ul className="space-y-4 mb-8 flex-1">
                 {[
                   "1 Custom Workflow",
-                  "Zapier/Make Integration",
-                  "2 Weeks Support",
+                  "Zapier / Make / n8n Integration",
+                  "Tool Setup + Testing",
+                  "14-Day Support",
                   "Training Video",
                 ].map((feature) => (
                   <li
@@ -344,20 +345,22 @@ export default function Home() {
                 Core System
               </h3>
               <div className="text-4xl font-bold text-white mb-4">
-                $8,000
+                $5,500
                 <span className="text-lg font-normal text-gray-500">
                   {" "}
                   one-time
                 </span>
               </div>
               <p className="text-gray-400 mb-8 text-sm">
-                Full department automation overhaul.
+               A full automation system built around your business
               </p>
               <ul className="space-y-4 mb-8 flex-1">
                 {[
                   "3-5 Interconnected Workflows",
                   "Custom Dashboard",
-                  "1 Month Support",
+                  "Team Walkthrough",
+                   "CRM / Calendar / POS Sync",
+                  "30-Day Support",
                   "Team Workshop",
                   "Priority Build Queue",
                 ].map((feature) => (
@@ -383,21 +386,21 @@ export default function Home() {
                 Scale Retainer
               </h3>
               <div className="text-4xl font-bold text-white mb-4">
-                $2-5k
+                $2-4k
                 <span className="text-lg font-normal text-gray-500">
                   {" "}
                   /month
                 </span>
               </div>
               <p className="text-gray-400 mb-8 text-sm">
-                Ongoing optimization and new builds.
+               Ongoing optimization and expansion.
               </p>
               <ul className="space-y-4 mb-8 flex-1">
                 {[
-                  "Unlimited Minor Tweaks",
+                  "Continuous Improvements",
                   "1 New Workflow / Month",
                   "Regular Strategy Calls",
-                  "Server Maintenance",
+                  "Monitoring + Maintenance",
                   "Priority Support",
                 ].map((feature) => (
                   <li
