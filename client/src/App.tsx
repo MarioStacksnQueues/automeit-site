@@ -11,6 +11,7 @@ import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
+import SMSPolicy from "@/pages/SMSPolicy";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -42,6 +43,7 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
+      <Route path="/sms-policy" component={SMSPolicy} />
       <Route component={NotFound} />
     </Switch>
   );
