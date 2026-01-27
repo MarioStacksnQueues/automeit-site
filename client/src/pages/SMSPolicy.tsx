@@ -21,7 +21,7 @@ export default function SMSPolicy() {
             <section>
               <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Opt-In Consent</h2>
               <p>
-                You only receive messages if you explicitly opt in. Opt-in may occur by submitting your phone number through a website form or checkout flow that includes SMS consent language, or by providing verbal consent during a phone call where you request updates by text.
+                You only receive messages if you explicitly opt in. Opt-in occurs when a user replies YES to a text message requesting consent to receive SMS updates. In some cases, opt-in may also occur by submitting a phone number through a website form or checkout flow that includes SMS consent language.
               </p>
             </section>
 
