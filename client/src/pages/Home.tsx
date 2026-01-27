@@ -202,7 +202,7 @@ export default function Home() {
             The <span className="text-blue-400">AutoMeit System</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-           This isn’t plug-and-play AI. It’s custom automation engineered to work inside your real systems.
+            Custom automation engineered to work inside your real systems.
           </p>
         </div>
 
