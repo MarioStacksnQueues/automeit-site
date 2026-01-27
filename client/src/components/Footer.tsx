@@ -122,6 +122,14 @@ export function Footer() {
                   Terms of Service
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/sms-policy#top"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  SMS Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
