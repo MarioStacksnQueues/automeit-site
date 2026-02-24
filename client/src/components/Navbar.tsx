@@ -36,11 +36,11 @@ export function Navbar() {
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-lg group-hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-rose-600 to-purple-600 flex items-center justify-center text-white font-bold text-lg group-hover:shadow-[0_0_15px_rgba(244,63,94,0.5)] transition-all">
               A
             </div>
-            <span className="text-xl font-bold tracking-tight text-white group-hover:text-blue-200 transition-colors">
-              AutoMeit<span className="text-blue-500">.ai</span>
+            <span className="text-xl font-bold tracking-tight text-white group-hover:text-rose-200 transition-colors">
+              AutoMeit<span className="text-rose-500">.ai</span>
             </span>
           </Link>
 
@@ -51,8 +51,8 @@ export function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-blue-400 ${
-                    location === link.href ? "text-blue-400" : "text-gray-300"
+                  className={`text-sm font-medium transition-colors hover:text-rose-400 ${
+                    location === link.href ? "text-rose-400" : "text-gray-300"
                   }`}
                 >
                   {link.name}
@@ -61,9 +61,9 @@ export function Navbar() {
             </div>
             <Button
               onClick={() => setIsCalendlyOpen(true)}
-              className="bg-blue-600 hover:bg-blue-700 text-white border-none shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all"
+              className="bg-rose-600 hover:bg-rose-700 text-white border-none shadow-lg shadow-rose-500/20 hover:shadow-rose-500/40 transition-all"
             >
-              Book Audit
+              Book Revenue Audit
             </Button>
           </div>
 
@@ -93,7 +93,7 @@ export function Navbar() {
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`text-2xl font-medium ${
-                    location === link.href ? "text-blue-400" : "text-gray-300"
+                    location === link.href ? "text-rose-400" : "text-gray-300"
                   }`}
                 >
                   {link.name}
@@ -104,9 +104,9 @@ export function Navbar() {
                   setIsMobileMenuOpen(false);
                   setIsCalendlyOpen(true);
                 }}
-                className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-lg py-6"
+                className="mt-4 w-full bg-rose-600 hover:bg-rose-700 text-lg py-6"
               >
-                Book Free Audit
+                Book Revenue Audit
               </Button>
             </div>
           </motion.div>

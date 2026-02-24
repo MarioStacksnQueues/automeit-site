@@ -6,16 +6,18 @@ import { insertContactSchema, type InsertContact } from "@shared/schema";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-// Your Formspree form ID
 const FORMSPREE_FORM_ID = "mkogqkzr";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [statusMsg, setStatusMsg] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [statusMsg, setStatusMsg] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
 
   const form = useForm<InsertContact>({
     resolver: zodResolver(insertContactSchema),
@@ -34,23 +36,23 @@ export default function Contact() {
     try {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
         method: "POST",
-        headers: { 
+        headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json"
+          Accept: "application/json",
         },
         body: JSON.stringify({
           name: data.name,
           email: data.email,
           company: data.company,
           message: data.message,
-          _subject: "New Contact Form Submission — AutoMeit.ai",
+          _subject: "New Revenue Audit Request — AutoMeit.ai",
         }),
       });
 
       if (res.ok) {
         setStatusMsg({
           type: "success",
-          text: "Message sent! We'll get back to you within 1 business day.",
+          text: "Message sent! We'll get back to you within 1 business day to schedule your revenue audit.",
         });
         form.reset();
       } else {
@@ -60,7 +62,7 @@ export default function Contact() {
           text: json?.error || "Something went wrong. Please try again.",
         });
       }
-    } catch (err) {
+    } catch {
       setStatusMsg({
         type: "error",
         text: "Network error. Please try again.",
@@ -84,18 +86,23 @@ export default function Contact() {
               className="space-y-8"
             >
               <div>
+                <p className="text-rose-400 text-sm font-semibold uppercase tracking-widest mb-4">
+                  Book Your Revenue Audit
+                </p>
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                  Let's talk automation.
+                  Let's find your missed revenue.
                 </h1>
                 <p className="text-xl text-gray-400">
-                  Ready to reclaim your time? Fill out the form or reach out directly. We usually respond within 24 hours.
+                  Fill out the form and we'll show you exactly how many consults
+                  your practice is missing and what the dollar impact is. No
+                  pitch. No pressure. Real numbers.
                 </p>
               </div>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0">
-                    <Mail size={24} />
+                  <div className="w-12 h-12 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400 shrink-0">
+                    <Mail size={22} />
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Email Us</h3>
@@ -105,21 +112,37 @@ export default function Contact() {
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0">
-                    <Clock size={24} />
+                    <Clock size={22} />
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Response Time</h3>
-                    <p className="text-gray-400">Typically within 1 business day</p>
+                    <p className="text-gray-400">Within 1 business day</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 shrink-0">
-                    <MapPin size={24} />
+                  <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0">
+                    <MapPin size={22} />
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Location</h3>
                     <p className="text-gray-400">Based in New York, NY</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400 shrink-0">
+                    <Phone size={22} />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold mb-1">
+                      What to Expect
+                    </h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      A 20-minute call where we walk through your current call
+                      volume, missed-call rate, and average consult value — then
+                      show you a real revenue number you're leaving on the table.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -132,7 +155,12 @@ export default function Contact() {
               transition={{ delay: 0.2 }}
               className="glass-card p-8 md:p-10 rounded-3xl"
             >
-              <h2 className="text-2xl font-bold text-white mb-6">Send us a message</h2>
+              <h2 className="text-2xl font-bold text-white mb-2">
+                Request your free revenue audit
+              </h2>
+              <p className="text-gray-400 text-sm mb-8">
+                Tell us about your practice and we'll reach out to schedule.
+              </p>
 
               {statusMsg && (
                 <div
@@ -146,63 +174,82 @@ export default function Contact() {
                 </div>
               )}
 
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Name</label>
+                    <label className="text-sm font-medium text-gray-300">
+                      Name
+                    </label>
                     <Input
-                      placeholder="John Doe"
-                      className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-blue-500"
+                      placeholder="Dr. Jane Smith"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-rose-500"
                       {...form.register("name")}
                     />
                     {form.formState.errors.name && (
-                      <p className="text-red-400 text-xs">{form.formState.errors.name.message}</p>
+                      <p className="text-red-400 text-xs">
+                        {form.formState.errors.name.message}
+                      </p>
                     )}
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Email</label>
+                    <label className="text-sm font-medium text-gray-300">
+                      Email
+                    </label>
                     <Input
-                      placeholder="john@company.com"
-                      className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-blue-500"
+                      placeholder="jane@luxemedspa.com"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-rose-500"
                       {...form.register("email")}
                     />
                     {form.formState.errors.email && (
-                      <p className="text-red-400 text-xs">{form.formState.errors.email.message}</p>
+                      <p className="text-red-400 text-xs">
+                        {form.formState.errors.email.message}
+                      </p>
                     )}
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">Company</label>
+                  <label className="text-sm font-medium text-gray-300">
+                    Med Spa Name
+                  </label>
                   <Input
-                    placeholder="Company Name"
-                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-blue-500"
+                    placeholder="Luxe Medical Spa"
+                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-rose-500"
                     {...form.register("company")}
                   />
                   {form.formState.errors.company && (
-                    <p className="text-red-400 text-xs">{form.formState.errors.company.message}</p>
+                    <p className="text-red-400 text-xs">
+                      {form.formState.errors.company.message}
+                    </p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">Message</label>
+                  <label className="text-sm font-medium text-gray-300">
+                    Message
+                  </label>
                   <Textarea
-                    placeholder="Tell us about your automation needs..."
-                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-blue-500 min-h-[150px]"
+                    placeholder="Tell us about your practice — how many calls you get per day, your main treatments, and what booking software you use..."
+                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-rose-500 min-h-[140px]"
                     {...form.register("message")}
                   />
                   {form.formState.errors.message && (
-                    <p className="text-red-400 text-xs">{form.formState.errors.message.message}</p>
+                    <p className="text-red-400 text-xs">
+                      {form.formState.errors.message.message}
+                    </p>
                   )}
                 </div>
 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6"
+                  className="w-full bg-rose-600 hover:bg-rose-700 text-lg py-6"
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? "Sending..." : "Request Revenue Audit"}
                 </Button>
               </form>
             </motion.div>
