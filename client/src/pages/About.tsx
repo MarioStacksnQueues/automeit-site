@@ -13,7 +13,7 @@ export default function About() {
     <div id="top" className="min-h-screen bg-background">
       <Navbar />
 
-      {/* ── HERO ── */}
+      {/* HERO */}
       <section className="pt-32 pb-20 relative">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-rose-600/8 rounded-full blur-[100px] -z-10" />
         <div className="container mx-auto px-4 md:px-6 text-center max-w-4xl">
@@ -45,7 +45,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── WHAT WE DO ── */}
+      {/* WHAT WE DO */}
       <section className="py-20 bg-white/[0.02] border-y border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-3 gap-8">
@@ -54,19 +54,19 @@ export default function About() {
                 icon: <Shield className="w-7 h-7 text-rose-400" />,
                 title: "We Capture Missed Revenue",
                 desc:
-                  "Every unanswered call is a lost consult. Our AI phone systems ensure 100% of inbound calls are handled, qualified, and booked — 24/7, including after-hours and weekends.",
+                  "Every unanswered call is a lost consult. Our AI phone systems ensure 100% of inbound calls are handled, qualified, and booked. Available 24/7, including after-hours and weekends.",
               },
               {
                 icon: <TrendingUp className="w-7 h-7 text-rose-400" />,
                 title: "We Increase Lifetime Value",
                 desc:
-                  "Reactivation campaigns, review automation, and financing flows don't just capture revenue — they grow it over time by bringing dormant clients back and converting high-ticket leads.",
+                  "Reactivation campaigns, review automation, and financing flows don't just capture revenue, they grow it over time by bringing dormant clients back and converting high-ticket leads.",
               },
               {
                 icon: <BarChart3 className="w-7 h-7 text-rose-400" />,
                 title: "We Prove ROI With Data",
                 desc:
-                  "Our dashboards show calls answered, consults booked, and estimated revenue captured. You'll know exactly what the system is worth — every single month.",
+                  "Our dashboards show calls answered, consults booked, and estimated revenue captured. You'll know exactly what the system is worth, every single month.",
               },
             ].map((value, i) => (
               <motion.div
@@ -90,7 +90,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── WHY MED SPA ONLY ── */}
+      {/* WHY MED SPA ONLY */}
       <section className="py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
@@ -99,14 +99,14 @@ export default function About() {
             </h2>
             <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
               <p>
-                Most AI companies sell the same system to every vertical — the
+                Most AI companies sell the same system to every vertical: the
                 same chatbot for nail salons, HVAC companies, dispensaries, and
                 law firms. We don't do that.
               </p>
               <p>
                 Medical aesthetics is different. A Botox consult is worth
-                $300–$500. A laser package is worth $2,000–$8,000. A missed call
-                isn't a nuisance — it's a documented revenue event. That means
+                $300-$500. A laser package is worth $2,000-$8,000. A missed call
+                isn't a nuisance. It's a documented revenue event. That means
                 the qualification scripts, lead routing, and follow-up sequences
                 need to be built specifically for your treatments, your pricing
                 structure, and your client journey.
@@ -127,7 +127,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── OUR APPROACH ── */}
+      {/* OUR APPROACH */}
       <section className="py-20 bg-white/[0.02] border-y border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
@@ -136,7 +136,7 @@ export default function About() {
               {[
                 {
                   title: "Revenue-first, not tech-first",
-                  desc: "We don't lead with AI jargon. We lead with numbers — how many consults you're losing and what each one is worth.",
+                  desc: "We don't lead with AI jargon. We lead with numbers: how many consults you're losing and what each one is worth.",
                 },
                 {
                   title: "Built to your treatments",
@@ -164,7 +164,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
+      {/* CTA */}
       <section className="py-24">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">

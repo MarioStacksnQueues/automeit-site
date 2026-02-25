@@ -45,7 +45,7 @@ export default function Contact() {
           email: data.email,
           company: data.company,
           message: data.message,
-          _subject: "New Revenue Audit Request — AutoMeit.ai",
+          _subject: "New Revenue Audit Request - AutoMeit.ai",
         }),
       });
 
@@ -106,7 +106,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Email Us</h3>
-                    <p className="text-gray-400">Automeit.hr@gmail.com</p>
+                    <p className="text-gray-400">developer@automeit.ai</p>
                   </div>
                 </div>
 
@@ -140,7 +140,7 @@ export default function Contact() {
                     </h3>
                     <p className="text-gray-400 text-sm leading-relaxed">
                       A 20-minute call where we walk through your current call
-                      volume, missed-call rate, and average consult value — then
+                      volume, missed-call rate, and average consult value, then
                       show you a real revenue number you're leaving on the table.
                     </p>
                   </div>
@@ -233,7 +233,7 @@ export default function Contact() {
                     Message
                   </label>
                   <Textarea
-                    placeholder="Tell us about your practice — how many calls you get per day, your main treatments, and what booking software you use..."
+                    placeholder="Tell us about your practice: how many calls you get per day, your main treatments, and what booking software you use..."
                     className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-rose-500 min-h-[140px]"
                     {...form.register("message")}
                   />
