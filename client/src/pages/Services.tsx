@@ -27,7 +27,7 @@ export default function Services() {
     {
       icon: <Phone className="w-6 h-6 text-rose-400" />,
       title: "24/7 AI Phone System",
-      desc: "Answers 100% of inbound calls with a natural, branded voice. Handles nights, weekends, and holidays so you never miss a consult — with optional live transfer to front desk during business hours.",
+      desc: "Answers 100% of inbound calls with a natural, branded voice. Handles nights, weekends, and holidays so you never miss a consult, with optional live transfer to front desk during business hours.",
     },
     {
       icon: <Calendar className="w-6 h-6 text-rose-400" />,
@@ -42,7 +42,7 @@ export default function Services() {
     {
       icon: <Zap className="w-6 h-6 text-rose-400" />,
       title: "Missed-Call Recovery System",
-      desc: "When a call drops before answering, an instant branded SMS fires within seconds — with a direct booking link. Revenue that would have walked out the door stays in your pipeline.",
+      desc: "When a call drops before answering, an instant branded SMS fires within seconds, with a direct booking link. Revenue that would have walked out the door stays in your pipeline.",
     },
     {
       icon: <Shield className="w-6 h-6 text-rose-400" />,
@@ -65,7 +65,7 @@ export default function Services() {
     {
       icon: <Star className="w-6 h-6 text-purple-400" />,
       title: "Review Automation Engine",
-      desc: "Post-appointment SMS review request with a direct Google Business link. Negative feedback gets routed internally before it ever goes public — protecting your reputation while growing your star rating.",
+      desc: "Post-appointment SMS review request with a direct Google Business link. Negative feedback gets routed internally before it ever goes public, protecting your reputation while growing your star rating.",
     },
     {
       icon: <RefreshCw className="w-6 h-6 text-purple-400" />,
@@ -80,7 +80,7 @@ export default function Services() {
     {
       icon: <DollarSign className="w-6 h-6 text-purple-400" />,
       title: "Financing Qualification Flow",
-      desc: "Cherry and CareCredit screening built directly into the call flow. High-ticket leads are flagged and routed to the right financing conversation — so price never kills the close.",
+      desc: "Cherry and CareCredit screening built directly into the call flow. High-ticket leads are flagged and routed to the right financing conversation, so price never kills the close.",
     },
     {
       icon: <Users className="w-6 h-6 text-purple-400" />,
@@ -98,7 +98,7 @@ export default function Services() {
     <div id="top" className="min-h-screen bg-background">
       <Navbar />
 
-      {/* ── HERO ── */}
+      {/* HERO */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-rose-600/10 rounded-full blur-[100px] -z-10" />
         <div className="container mx-auto px-4 md:px-6">
@@ -113,14 +113,14 @@ export default function Services() {
             <p className="text-xl text-gray-400 leading-relaxed">
               We specialize in one industry so we can be the best at it. Every
               call script, every integration, and every revenue report is
-              engineered around medical aesthetics — your treatments, your
+              engineered around medical aesthetics: your treatments, your
               pricing, and your clients.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ── GROWTH PLAN ── */}
+      {/* GROWTH PLAN */}
       <section className="py-24 border-t border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -143,7 +143,7 @@ export default function Services() {
                   "$1,500 one-time setup fee",
                   "$697/month",
                   "6-month minimum commitment",
-                  "$7,100/year — saves 2 months",
+                  "$7,100/year, saves 2 months",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <Check size={14} className="text-rose-400 shrink-0" />
@@ -204,7 +204,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ── PREMIUM PLAN ── */}
+      {/* PREMIUM PLAN */}
       <section className="py-24 bg-white/[0.02] border-y border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -238,7 +238,7 @@ export default function Services() {
             <div className="lg:sticky lg:top-28">
               <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-2 mb-6">
                 <span className="text-purple-400 text-sm font-bold">
-                  PREMIUM PLAN — MOST POPULAR
+                  PREMIUM PLAN - MOST POPULAR
                 </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -247,7 +247,7 @@ export default function Services() {
               <p className="text-gray-400 text-lg mb-8">
                 Everything in Growth, plus reactivation campaigns, review
                 automation, financing flows, and quarterly optimization. You're
-                not just capturing missed revenue — you're systematically
+                not just capturing missed revenue, you're systematically
                 growing it.
               </p>
 
@@ -294,14 +294,14 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ── INTEGRATIONS ── */}
+      {/* INTEGRATIONS */}
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-2xl font-bold text-white mb-3">
             Works with your existing stack
           </h2>
           <p className="text-gray-400 mb-10">
-            Direct integrations — no middleware, no workarounds.
+            Direct integrations, no middleware, no workarounds.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             {[
@@ -325,7 +325,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
+      {/* CTA */}
       <section className="py-20 bg-white/[0.02] border-t border-white/5">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
@@ -333,7 +333,7 @@ export default function Services() {
           </h2>
           <p className="text-gray-400 mb-8 max-w-lg mx-auto">
             Book a free revenue audit and we'll show you exactly what your
-            practice is missing — and which system fixes it.
+            practice is missing and which system fixes it.
           </p>
           <Button
             onClick={() => setIsCalendlyOpen(true)}
