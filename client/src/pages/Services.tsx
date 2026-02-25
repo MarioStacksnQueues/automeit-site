@@ -27,44 +27,37 @@ export default function Services() {
     {
       icon: <Phone className="w-6 h-6 text-rose-400" />,
       title: "24/7 AI Phone System",
-      desc:
-        "Answers 100% of inbound calls with a natural, branded voice. Handles nights, weekends, and holidays so you never miss a consult — with optional live transfer to front desk during business hours.",
+      desc: "Answers 100% of inbound calls with a natural, branded voice. Handles nights, weekends, and holidays so you never miss a consult — with optional live transfer to front desk during business hours.",
     },
     {
       icon: <Calendar className="w-6 h-6 text-rose-400" />,
       title: "Appointment Booking Integration",
-      desc:
-        "Real-time calendar access for Boulevard, Mangomint, Mindbody, and Square. Books consultations directly and fires automated SMS confirmations immediately after.",
+      desc: "Real-time calendar access for Boulevard, Mangomint, Mindbody, and Square. Books consultations directly and fires automated SMS confirmations immediately after.",
     },
     {
       icon: <MessageSquare className="w-6 h-6 text-rose-400" />,
       title: "Consultation Qualification Flow",
-      desc:
-        "Custom-scripted triage for Botox, Fillers, Laser, Weight Loss, PRP, and Microneedling. Captures name, phone, email, treatment interest, budget range, first-time vs. returning, and referral source.",
+      desc: "Custom-scripted triage for Botox, Fillers, Laser, Weight Loss, PRP, and Microneedling. Captures name, phone, email, treatment interest, budget range, first-time vs. returning, and referral source.",
     },
     {
       icon: <Zap className="w-6 h-6 text-rose-400" />,
       title: "Missed-Call Recovery System",
-      desc:
-        "When a call drops before answering, an instant branded SMS fires within seconds — with a direct booking link. Revenue that would have walked out the door stays in your pipeline.",
+      desc: "When a call drops before answering, an instant branded SMS fires within seconds — with a direct booking link. Revenue that would have walked out the door stays in your pipeline.",
     },
     {
       icon: <Shield className="w-6 h-6 text-rose-400" />,
       title: "FAQ & Objection Handling",
-      desc:
-        "AI trained on your specific pricing ranges, downtime expectations, financing options, active promotions, cancellation policies, and treatment prep instructions.",
+      desc: "AI trained on your specific pricing ranges, downtime expectations, financing options, active promotions, cancellation policies, and treatment prep instructions.",
     },
     {
       icon: <Users className="w-6 h-6 text-rose-400" />,
       title: "Lead Routing Logic",
-      desc:
-        "VIP clients routed to priority lines. New consults flagged differently from returning clients. Weight-loss leads separated into their own funnel if needed.",
+      desc: "VIP clients routed to priority lines. New consults flagged differently from returning clients. Weight-loss leads separated into their own funnel if needed.",
     },
     {
       icon: <BarChart3 className="w-6 h-6 text-rose-400" />,
       title: "Basic Revenue Dashboard",
-      desc:
-        "Monthly report showing calls answered, appointments booked, and estimated revenue captured. Turns your phone system from a cost center into a documented revenue asset.",
+      desc: "Monthly report showing calls answered, appointments booked, and estimated revenue captured. Turns your phone system from a cost center into a documented revenue asset.",
     },
   ];
 
@@ -72,38 +65,32 @@ export default function Services() {
     {
       icon: <Star className="w-6 h-6 text-purple-400" />,
       title: "Review Automation Engine",
-      desc:
-        "Post-appointment SMS review request with a direct Google Business link. Negative feedback gets routed internally before it ever goes public — protecting your reputation while growing your star rating.",
+      desc: "Post-appointment SMS review request with a direct Google Business link. Negative feedback gets routed internally before it ever goes public — protecting your reputation while growing your star rating.",
     },
     {
       icon: <RefreshCw className="w-6 h-6 text-purple-400" />,
       title: "Reactivation Campaigns",
-      desc:
-        "Automated monthly outreach to no-shows, clients inactive for 90+ days, and consult leads who never booked. Includes SMS sequences, email flows, and promo offer insertion.",
+      desc: "Automated monthly outreach to no-shows, clients inactive for 90+ days, and consult leads who never booked. Includes SMS sequences, email flows, and promo offer insertion.",
     },
     {
       icon: <TrendingUp className="w-6 h-6 text-purple-400" />,
       title: "Advanced Revenue Dashboard",
-      desc:
-        "Revenue per call type, consult-to-treatment conversion rate, lost-call revenue estimates, and after-hours revenue impact. This turns your AI system into hard ROI evidence.",
+      desc: "Revenue per call type, consult-to-treatment conversion rate, lost-call revenue estimates, and after-hours revenue impact. This turns your AI system into hard ROI evidence.",
     },
     {
       icon: <DollarSign className="w-6 h-6 text-purple-400" />,
       title: "Financing Qualification Flow",
-      desc:
-        "Cherry and CareCredit screening built directly into the call flow. High-ticket leads are flagged and routed to the right financing conversation — so price never kills the close.",
+      desc: "Cherry and CareCredit screening built directly into the call flow. High-ticket leads are flagged and routed to the right financing conversation — so price never kills the close.",
     },
     {
       icon: <Users className="w-6 h-6 text-purple-400" />,
       title: "Advanced Lead Segmentation",
-      desc:
-        "Leads categorized by treatment type, revenue potential, new vs. returning status, and high-value client tags. Auto-exported into your CRM for seamless follow-up.",
+      desc: "Leads categorized by treatment type, revenue potential, new vs. returning status, and high-value client tags. Auto-exported into your CRM for seamless follow-up.",
     },
     {
       icon: <Calendar className="w-6 h-6 text-purple-400" />,
       title: "Quarterly Optimization Call",
-      desc:
-        "Every quarter, we review your conversion data, adjust scripts, add new treatments, and build seasonal promo scripting. Your system improves over time instead of going stale.",
+      desc: "Every quarter, we review your conversion data, adjust scripts, add new treatments, and build seasonal promo scripting. Your system improves over time instead of going stale.",
     },
   ];
 
@@ -124,10 +111,10 @@ export default function Services() {
               <span className="text-gradient">Nothing else.</span>
             </h1>
             <p className="text-xl text-gray-400 leading-relaxed">
-              We don't sell AI to nail salons, HVAC companies, or dispensaries.
-              We install revenue infrastructure engineered specifically for
-              medical aesthetics — because your consultations are worth
-              $500–$2,000 and every missed call is a real revenue event.
+              We specialize in one industry so we can be the best at it. Every
+              call script, every integration, and every revenue report is
+              engineered around medical aesthetics — your treatments, your
+              pricing, and your clients.
             </p>
           </div>
         </div>
@@ -140,9 +127,7 @@ export default function Services() {
             {/* Left: Plan summary */}
             <div className="lg:sticky lg:top-28">
               <div className="inline-flex items-center gap-2 bg-rose-500/10 border border-rose-500/20 rounded-full px-4 py-2 mb-6">
-                <span className="text-rose-400 text-sm font-bold">
-                  GROWTH PLAN
-                </span>
+                <span className="text-rose-400 text-sm font-bold">GROWTH PLAN</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Capture Missed Revenue
@@ -282,9 +267,15 @@ export default function Services() {
               </div>
 
               <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/8 mb-8">
-                <p className="text-sm text-gray-400 font-medium mb-2">Growth = Capture missed revenue</p>
-                <p className="text-sm text-gray-400 font-medium">Premium = Increase total revenue</p>
-                <p className="text-xs text-gray-500 mt-3">That's how we explain the difference.</p>
+                <p className="text-sm text-gray-300 font-medium mb-1">
+                  Growth = Capture missed revenue
+                </p>
+                <p className="text-sm text-gray-300 font-medium">
+                  Premium = Increase total revenue
+                </p>
+                <p className="text-xs text-gray-600 mt-3">
+                  That's how we explain the difference.
+                </p>
               </div>
 
               <Button
