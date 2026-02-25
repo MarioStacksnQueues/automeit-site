@@ -12,12 +12,12 @@ import Contact from "@/pages/Contact";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import SMSPolicy from "@/pages/SMSPolicy";
+import { ElevenLabsWidget } from "@/components/ElevenLabsWidget";
 
 function ScrollToTop() {
   const [location] = useLocation();
 
   useEffect(() => {
-    // If URL has a hash (#top), scroll to that element
     if (window.location.hash) {
       const el = document.querySelector(window.location.hash);
       if (el) {
@@ -25,14 +25,11 @@ function ScrollToTop() {
         return;
       }
     }
-
-    // Default: scroll to top
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location]);
 
   return null;
 }
-
 
 function Router() {
   return (
@@ -56,6 +53,7 @@ function App() {
         <Toaster />
         <ScrollToTop />
         <Router />
+        <ElevenLabsWidget />
       </TooltipProvider>
     </QueryClientProvider>
   );

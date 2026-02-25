@@ -20,7 +20,7 @@ export function Footer() {
             </Link>
 
             <p className="text-gray-400 text-sm leading-relaxed">
-              Med spa revenue infrastructure. We install AI phone systems that capture missed calls, book consultations automatically, and prove ROI — built exclusively for medical aesthetics practices.
+              Med spa revenue infrastructure. We install AI phone systems that capture missed calls, book consultations automatically, and prove ROI, built exclusively for medical aesthetics practices.
             </p>
 
             <div className="flex items-center gap-4">
@@ -50,12 +50,12 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
                 <Link href="/services#top" className="hover:text-rose-400 transition-colors">
-                  Growth Plan — $697/mo
+                  Growth Plan - $697/mo
                 </Link>
               </li>
               <li>
                 <Link href="/services#top" className="hover:text-rose-400 transition-colors">
-                  Premium Plan — $997/mo
+                  Premium Plan - $997/mo
                 </Link>
               </li>
               <li>
@@ -108,7 +108,7 @@ export function Footer() {
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-rose-500" />
                 <Link href="/contact#top" className="hover:text-white transition-colors">
-                  Automeit.hr@gmail.com
+                  developer@automeit.ai
                 </Link>
               </li>
               <li className="text-gray-500 text-xs mt-4 leading-relaxed">
