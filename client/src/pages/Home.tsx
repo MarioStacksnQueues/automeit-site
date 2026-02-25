@@ -18,7 +18,7 @@ import { PopupModal } from "react-calendly";
 const faqs = [
   {
     q: "Will the AI sound robotic to my clients?",
-    a: "No. The voice is natural and fully branded to your practice — including your spa name and greeting. Most callers don't realize they're speaking with an automated system until after they've already booked their consultation.",
+    a: "No. The voice is natural and fully branded to your practice, including your spa name and greeting. Most callers don't realize they're speaking with an automated system until after they've already booked their consultation.",
   },
   {
     q: "What if I already have a front desk team?",
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "How long does setup take?",
-    a: "Under 2 weeks from kickoff. We build your full treatment qualification scripts, integrate directly with your booking system, test every call path, and go live — all handled by our team.",
+    a: "Under 2 weeks from kickoff. We build your full treatment qualification scripts, integrate directly with your booking system, test every call path, and go live, all handled by our team.",
   },
   {
     q: "What if a client asks something the AI doesn't know?",
@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Can you customize it for my specific treatments?",
-    a: "Yes — that's the entire point. Every qualification flow is built around your exact service menu: Botox, fillers, laser, PRP, weight loss, microneedling, whatever you offer. No generic templates.",
+    a: "Yes, that's the entire point. Every qualification flow is built around your exact service menu: Botox, fillers, laser, PRP, weight loss, microneedling, whatever you offer. No generic templates.",
   },
   {
     q: "How do you handle HIPAA compliance?",
@@ -45,21 +45,21 @@ const faqs = [
 const testimonials = [
   {
     quote:
-      "We were missing 6–8 calls per day. Within the first month we recovered 14 consults we would have lost completely. The ROI isn't even close.",
+      "We were missing 6-8 calls per day. Within the first month we recovered 14 consults we would have lost completely. The ROI isn't even close.",
     name: "Sarah M.",
     title: "Owner, Luxe Aesthetics & Wellness",
     location: "Dallas, TX",
   },
   {
     quote:
-      "My front desk was drowning during peak hours. Now the AI handles overflow, books the consult, sends the confirmation — and my team focuses on clients already in the chair.",
+      "My front desk was drowning during peak hours. Now the AI handles overflow, books the consult, sends the confirmation, and my team focuses on clients already in the chair.",
     name: "Dr. Jennifer K.",
     title: "Medical Director, Glow Medical Spa",
     location: "Miami, FL",
   },
   {
     quote:
-      "The revenue dashboard changed how I think about my phone line. I can see exactly what the system generates each month. It's not a cost — it's an investment with a clear return.",
+      "The revenue dashboard changed how I think about my phone line. I can see exactly what the system generates each month. It's not a cost. It's an investment with a clear return.",
     name: "Nicole R.",
     title: "Practice Manager, Elite Med Spa",
     location: "Los Angeles, CA",
@@ -70,8 +70,8 @@ const comparisonRows = [
   {
     label: "Monthly Cost",
     automeit: "$697/mo",
-    hire: "$3,500–$4,500/mo",
-    generic: "$99–$299/mo",
+    hire: "$3,500-$4,500/mo",
+    generic: "$99-$299/mo",
   },
   {
     label: "Hours Available",
@@ -82,7 +82,7 @@ const comparisonRows = [
   {
     label: "Missed Calls",
     automeit: "Zero",
-    hire: "20–40%",
+    hire: "20-40%",
     generic: "Varies",
   },
   {
@@ -112,7 +112,7 @@ const comparisonRows = [
   {
     label: "Setup Time",
     automeit: "Under 2 weeks",
-    hire: "2–8 weeks to hire",
+    hire: "2-8 weeks to hire",
     generic: "Days (no customization)",
   },
 ];
@@ -122,19 +122,19 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const growthFeatures = [
-    "24/7 AI Phone System — answers every inbound call, branded to your spa",
+    "24/7 AI Phone System that answers every inbound call, branded to your spa",
     "Booking integration with Boulevard, Mangomint, Mindbody & Square",
     "Consultation qualification for Botox, Fillers, Laser, PRP, Weight Loss & more",
-    "Missed-call SMS recovery — instant branded follow-up with booking link",
+    "Missed-call SMS recovery with instant branded follow-up and booking link",
     "FAQ & objection handling (pricing, downtime, financing, cancellations)",
-    "Lead routing — VIP priority, new consults, weight-loss segmentation",
-    "Monthly revenue dashboard — calls, bookings & estimated revenue captured",
+    "Lead routing for VIP priority, new consults, and weight-loss segmentation",
+    "Monthly revenue dashboard: calls, bookings & estimated revenue captured",
   ];
 
   const premiumAddons = [
-    "Review automation — post-appointment Google review SMS",
+    "Review automation via post-appointment Google review SMS",
     "Reactivation campaigns for no-shows, lapsed clients & ghost leads",
-    "Advanced dashboard — revenue per call type, conversion rates, lost-call estimates",
+    "Advanced dashboard: revenue per call type, conversion rates, lost-call estimates",
     "Financing qualification flow (Cherry / CareCredit screening)",
     "Advanced lead segmentation with CRM auto-export",
     "Quarterly optimization strategy call with our team",
@@ -144,7 +144,7 @@ export default function Home() {
     <div id="top" className="min-h-screen bg-background">
       <Navbar />
 
-      {/* ── HERO ── */}
+      {/* HERO */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-rose-600/10 rounded-full blur-[120px] -z-10" />
         <div className="absolute bottom-0 right-0 w-[700px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] -z-10" />
@@ -173,7 +173,7 @@ export default function Home() {
 
             <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
               We install a 24/7 AI phone system that books consultations
-              automatically — even after hours, on weekends, and during your
+              automatically, even after hours, on weekends, and during your
               busiest moments.
             </p>
 
@@ -203,7 +203,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── BOOKING INTEGRATIONS ── */}
+      {/* BOOKING INTEGRATIONS */}
       <section className="py-10 border-y border-white/5 bg-white/[0.02]">
         <div className="container mx-auto px-4 md:px-6">
           <p className="text-center text-xs font-semibold text-gray-500 uppercase tracking-widest mb-8">
@@ -229,7 +229,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── REVENUE MATH ── */}
+      {/* REVENUE MATH */}
       <section className="py-28 relative">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-14">
@@ -303,7 +303,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ── */}
+      {/* HOW IT WORKS */}
       <section
         id="how-it-works"
         className="py-24 bg-white/[0.02] border-y border-white/5"
@@ -324,19 +324,19 @@ export default function Home() {
                 step: "01",
                 icon: <Phone className="w-8 h-8 text-rose-400" />,
                 title: "AI Answers Every Call",
-                desc: "Branded to your spa. Natural voice. Handles after-hours, weekends, and peak hours — 100% of inbound calls captured.",
+                desc: "Branded to your spa. Natural voice. Handles after-hours, weekends, and peak hours, capturing 100% of inbound calls.",
               },
               {
                 step: "02",
                 icon: <Calendar className="w-8 h-8 text-purple-400" />,
                 title: "Qualifies & Books Consults",
-                desc: "Collects treatment interest, budget, and availability — then books directly into your calendar with SMS confirmation.",
+                desc: "Collects treatment interest, budget, and availability, then books directly into your calendar with SMS confirmation.",
               },
               {
                 step: "03",
                 icon: <BarChart3 className="w-8 h-8 text-blue-400" />,
                 title: "Dashboard Proves ROI",
-                desc: "Every call, every booking, and estimated revenue captured — visible in one clean monthly report.",
+                desc: "Every call, every booking, and estimated revenue captured, visible in one clean monthly report.",
               },
             ].map((item, i) => (
               <div key={i} className="relative z-10 text-center">
@@ -356,7 +356,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PRICING ── */}
+      {/* PRICING */}
       <section id="pricing" className="py-28">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
@@ -442,7 +442,7 @@ export default function Home() {
                   Increase Total Revenue
                 </h3>
                 <p className="text-gray-400 text-sm">
-                  Full revenue engine — capture, reactivate, optimize, and prove ROI.
+                  Full revenue engine: capture, reactivate, optimize, and prove ROI.
                 </p>
               </div>
 
@@ -494,7 +494,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── COMPARISON TABLE ── */}
+      {/* COMPARISON TABLE */}
       <section className="py-24 bg-white/[0.02] border-y border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-14">
@@ -502,7 +502,7 @@ export default function Home() {
               Why not just hire someone?
             </h2>
             <p className="text-gray-400 text-lg max-w-xl mx-auto">
-              Front desk staff costs $3,500–$4,500/month — and still misses
+              Front desk staff costs $3,500-$4,500/month, and still misses
               after-hours calls.
             </p>
           </div>
@@ -568,7 +568,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
+      {/* TESTIMONIALS */}
       <section className="py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-14">
@@ -620,7 +620,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* FAQ */}
       <section className="py-24 bg-white/[0.02] border-y border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
@@ -664,7 +664,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── POSITIONING STATEMENT ── */}
+      {/* POSITIONING STATEMENT */}
       <section className="py-20 border-b border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
@@ -687,7 +687,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FINAL CTA ── */}
+      {/* FINAL CTA */}
       <section className="py-28">
         <div className="container mx-auto px-4 md:px-6">
           <div className="bg-gradient-to-br from-rose-900/40 via-background to-purple-900/40 border border-white/10 rounded-3xl p-10 md:p-20 text-center relative overflow-hidden">
