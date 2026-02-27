@@ -1,15 +1,32 @@
 import { Link, useLocation } from "wouter";
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { PopupModal } from "react-calendly";
+
+const industries = [
+  {
+    name: "Med Spa & Aesthetics",
+    href: "/",
+    desc: "Botox, fillers, laser & more",
+    color: "text-rose-400",
+  },
+  {
+    name: "Trades",
+    href: "/trades",
+    desc: "Plumbing, HVAC, roofing & electrical",
+    color: "text-orange-400",
+  },
+];
 
 export function Navbar() {
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +34,16 @@ export function Navbar() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsIndustriesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const navLinks = [
@@ -47,6 +74,51 @@ export function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             <div className="flex items-center gap-6">
+              {/* Industries Dropdown */}
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
+                  className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-rose-400 ${
+                    location === "/" || location === "/trades"
+                      ? "text-rose-400"
+                      : "text-gray-300"
+                  }`}
+                >
+                  Industries
+                  <ChevronDown
+                    size={14}
+                    className={`transition-transform duration-200 ${
+                      isIndustriesOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {isIndustriesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden"
+                    >
+                      {industries.map((ind) => (
+                        <Link
+                          key={ind.href}
+                          href={ind.href}
+                          onClick={() => setIsIndustriesOpen(false)}
+                          className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0"
+                        >
+                          <span className={`text-sm font-semibold ${ind.color}`}>
+                            {ind.name}
+                          </span>
+                          <span className="text-xs text-gray-500">{ind.desc}</span>
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -87,6 +159,24 @@ export function Navbar() {
             className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-4 md:hidden"
           >
             <div className="flex flex-col gap-6">
+              <div>
+                <p className="text-xs font-bold text-gray-600 uppercase tracking-widest mb-3">
+                  Industries
+                </p>
+                {industries.map((ind) => (
+                  <Link
+                    key={ind.href}
+                    href={ind.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex flex-col gap-0.5 py-3 border-b border-white/5"
+                  >
+                    <span className={`text-lg font-semibold ${ind.color}`}>
+                      {ind.name}
+                    </span>
+                    <span className="text-sm text-gray-500">{ind.desc}</span>
+                  </Link>
+                ))}
+              </div>
               {navLinks.map((link) => (
                 <Link
                   key={link.name}

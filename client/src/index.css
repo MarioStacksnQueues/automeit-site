@@ -61,6 +61,10 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400;
   }
+
+  .text-gradient-trades {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400;
+  }
   
   .glow-effect {
     @apply relative after:absolute after:inset-0 after:bg-primary/20 after:blur-xl after:rounded-full after:-z-10;

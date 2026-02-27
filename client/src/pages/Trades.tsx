@@ -5,10 +5,10 @@ import {
   Check,
   ArrowRight,
   Phone,
-  Calendar,
   BarChart3,
   ChevronDown,
   Star,
+  Wrench,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -18,127 +18,128 @@ import { PopupModal } from "react-calendly";
 
 const faqs = [
   {
-    q: "Will the AI sound robotic to my clients?",
-    a: "No. The voice is natural and fully branded to your practice, including your spa name and greeting. Most callers don't realize they're speaking with an automated system until after they've already booked their consultation.",
+    q: "Will it work with Jobber or Housecall Pro?",
+    a: "Yes. We integrate directly with Jobber, Housecall Pro, and Google Calendar. Booked jobs flow straight into your existing system — no double entry, no extra steps for your team.",
   },
   {
-    q: "What if I already have a front desk team?",
-    a: "The system works alongside your staff, not instead of them. It handles overflow calls, after-hours traffic, and peak-hour backlog so your team can focus on clients in-chair. Optional live transfer to front desk during business hours.",
+    q: "What about emergency calls at 2am?",
+    a: "That's exactly what this is built for. The AI answers immediately, captures the issue type, address, urgency level, and contact info, then fires an instant SMS alert to your on-call tech. You never miss the high-ticket emergency call again.",
+  },
+  {
+    q: "Can it handle multiple job types — plumbing, HVAC installs, roof estimates?",
+    a: "Every call flow is custom-built for your business. We script separate intake paths for emergency calls, estimate requests, maintenance appointments, and seasonal services. Nothing generic.",
   },
   {
     q: "How long does setup take?",
-    a: "Under 2 weeks from kickoff. We build your full treatment qualification scripts, integrate directly with your booking system, test every call path, and go live, all handled by our team.",
+    a: "Under 2 weeks from kickoff. We build your call scripts, integrate with your booking system, configure after-hours routing, and test every call path before going live.",
   },
   {
-    q: "What if a client asks something the AI doesn't know?",
-    a: "Before launch, the AI is trained on your FAQ, pricing ranges, active promotions, and policies. For anything outside its knowledge, it captures the caller's information and routes to your team so nothing slips through.",
+    q: "Do I need to change my phone number?",
+    a: "No. We work with your existing number. Calls ring through your AI system first, and optional live transfer to your team during business hours is included.",
   },
   {
-    q: "Can you customize it for my specific treatments?",
-    a: "Yes, that's the entire point. Every qualification flow is built around your exact service menu: Botox, fillers, laser, PRP, weight loss, microneedling, whatever you offer. No generic templates.",
-  },
-  {
-    q: "How do you handle HIPAA compliance?",
-    a: "Our systems are designed to avoid capturing protected health information during the intake flow. All data handling follows best practices for medical aesthetics environments. We cover your specific requirements during the onboarding call.",
+    q: "What if a caller asks about pricing or availability?",
+    a: "Before launch, we train the AI on your service areas, general pricing ranges, availability windows, and what customers should do before the tech arrives. It handles the common questions so your team doesn't have to.",
   },
 ];
 
 const testimonials = [
   {
     quote:
-      "We were missing 6-8 calls per day. Within the first month we recovered 14 consults we would have lost completely. The ROI isn't even close.",
-    name: "Sarah M.",
-    title: "Owner, Luxe Aesthetics & Wellness",
-    location: "Dallas, TX",
+      "We were losing 3-4 after-hours calls a week. Emergency jobs at $1,200 a pop. Within the first month we recovered 6 jobs we would have lost to voicemail. System paid for itself week one.",
+    name: "Marcus T.",
+    title: "Owner, TrueFlow Plumbing",
+    location: "Houston, TX",
   },
   {
     quote:
-      "My front desk was drowning during peak hours. Now the AI handles overflow, books the consult, sends the confirmation, and my team focuses on clients already in the chair.",
-    name: "Dr. Jennifer K.",
-    title: "Medical Director, Glow Medical Spa",
-    location: "Miami, FL",
+      "HVAC season hits and my phone doesn't stop. The AI handles every call during peak hours so my office isn't drowning, and every lead is in Jobber before my team even sees it.",
+    name: "Derek L.",
+    title: "Operations Manager, CoolAir HVAC",
+    location: "Phoenix, AZ",
   },
   {
     quote:
-      "The revenue dashboard changed how I think about my phone line. I can see exactly what the system generates each month. It's not a cost. It's an investment with a clear return.",
-    name: "Nicole R.",
-    title: "Practice Manager, Elite Med Spa",
-    location: "Los Angeles, CA",
+      "Roofing estimates are my lifeblood after storms. The AI captures every inbound call, qualifies the damage type, and books the estimate while I'm on a roof. Closed 11 extra jobs last quarter.",
+    name: "Ray C.",
+    title: "Owner, StormShield Roofing",
+    location: "Atlanta, GA",
   },
 ];
 
 const comparisonRows = [
   {
     label: "Monthly Cost",
-    automeit: "$697/mo",
-    hire: "$3,500-$4,500/mo",
-    generic: "$99-$299/mo",
+    automeit: "$497/mo",
+    miss: "$0 (lose the job)",
+    service: "$300–$600/mo",
   },
   {
     label: "Hours Available",
     automeit: "24/7 / 365",
-    hire: "Business hours only",
-    generic: "24/7",
+    miss: "Business hours only",
+    service: "24/7 (off-script)",
   },
   {
-    label: "Missed Calls",
+    label: "Missed After-Hours Jobs",
     automeit: "Zero",
-    hire: "20-40%",
-    generic: "Varies",
+    miss: "100%",
+    service: "Varies",
   },
   {
-    label: "Med Spa Scripts",
+    label: "Trades-Specific Scripts",
     automeit: "Custom built",
-    hire: "Depends on training",
-    generic: "Generic only",
+    miss: "N/A",
+    service: "Generic only",
   },
   {
     label: "Booking Integration",
-    automeit: "Direct (Boulevard etc.)",
-    hire: "Manual entry",
-    generic: "Limited",
+    automeit: "Jobber / HCP / GCal",
+    miss: "None",
+    service: "Not included",
+  },
+  {
+    label: "Emergency SMS Alert",
+    automeit: "Instant, automatic",
+    miss: "None",
+    service: "Not included",
   },
   {
     label: "Revenue Dashboard",
     automeit: "Included",
-    hire: "Not included",
-    generic: "Not included",
-  },
-  {
-    label: "Missed-Call SMS Recovery",
-    automeit: "Instant, automatic",
-    hire: "Not included",
-    generic: "Not included",
+    miss: "None",
+    service: "Not included",
   },
   {
     label: "Setup Time",
     automeit: "Under 2 weeks",
-    hire: "2-8 weeks to hire",
-    generic: "Days (no customization)",
+    miss: "N/A",
+    service: "Days (no customization)",
   },
 ];
 
-export default function Home() {
+export default function Trades() {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const growthFeatures = [
-    "24/7 AI Phone System that answers every inbound call, branded to your spa",
-    "Booking integration with Boulevard, Mangomint, Mindbody & Square",
-    "Consultation qualification for Botox, Fillers, Laser, PRP, Weight Loss & more",
-    "Missed-call SMS recovery with instant branded follow-up and booking link",
-    "FAQ & objection handling (pricing, downtime, financing, cancellations)",
-    "Lead routing for VIP priority, new consults, and weight-loss segmentation",
-    "Monthly revenue dashboard: calls, bookings & estimated revenue captured",
+  const starterFeatures = [
+    "24/7 AI Phone System answering every inbound call, branded to your company",
+    "Job intake qualification (issue type, address, urgency level, contact info)",
+    "Booking integration with Jobber, Housecall Pro, or Google Calendar",
+    "After-hours emergency call capture with instant SMS alert to on-call tech",
+    "FAQ handling (service areas, pricing ranges, availability, what to do before tech arrives)",
+    "Missed-call SMS recovery with callback request and booking link",
+    "Monthly dashboard: calls answered, jobs captured, estimated revenue recovered",
   ];
 
-  const premiumAddons = [
-    "Review automation via post-appointment Google review SMS",
-    "Reactivation campaigns for no-shows, lapsed clients & ghost leads",
-    "Advanced dashboard: revenue per call type, conversion rates, lost-call estimates",
-    "Financing qualification flow (Cherry / CareCredit screening)",
-    "Advanced lead segmentation with CRM auto-export",
-    "Quarterly optimization strategy call with our team",
+  const proAddons = [
+    "Multi-tech / multi-location call routing and dispatch triage",
+    "Reactivation campaigns for past customers (seasonal tune-ups, annual service reminders)",
+    "Review automation via post-job Google review SMS",
+    "Financing FAQ flow for large jobs (roof replacements, HVAC installs)",
+    "Advanced dashboard: revenue per call type, emergency vs. standard, lost-call estimates",
+    "Lead segmentation by job type (emergency, estimate, maintenance) with CRM auto-export",
+    "Quarterly optimization call with our team",
   ];
 
   return (
@@ -147,8 +148,8 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-rose-600/10 rounded-full blur-[120px] -z-10" />
-        <div className="absolute bottom-0 right-0 w-[700px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] -z-10" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-orange-600/10 rounded-full blur-[120px] -z-10" />
+        <div className="absolute bottom-0 right-0 w-[700px] h-[500px] bg-amber-600/10 rounded-full blur-[100px] -z-10" />
 
         <div className="container mx-auto px-4 md:px-6 text-center">
           <motion.div
@@ -158,31 +159,31 @@ export default function Home() {
           >
             <Badge
               variant="outline"
-              className="mb-6 px-4 py-2 border-rose-500/30 bg-rose-500/10 text-rose-300 rounded-full"
+              className="mb-6 px-4 py-2 border-orange-500/30 bg-orange-500/10 text-orange-300 rounded-full"
             >
               <span className="relative flex h-2 w-2 mr-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500" />
               </span>
-              Built for medical aesthetics practices
+              Built for Plumbing, HVAC, Roofing & Electrical
             </Badge>
 
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
-              Stop Losing Med Spa <br />
-              <span className="text-gradient">Revenue to Missed Calls</span>
+              Stop Losing Jobs <br />
+              <span className="text-gradient-trades">to Voicemail</span>
             </h1>
 
             <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-              We install a 24/7 AI phone system that books consultations
-              automatically, even after hours, on weekends, and during your
-              busiest moments.
+              We install a 24/7 AI phone system that captures every inbound job
+              call, qualifies the lead, and books it — even after hours,
+              weekends, and your busiest days.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 size="lg"
                 onClick={() => setIsCalendlyOpen(true)}
-                className="w-full sm:w-auto text-lg h-14 px-10 bg-rose-600 hover:bg-rose-700 shadow-lg shadow-rose-500/25"
+                className="w-full sm:w-auto text-lg h-14 px-10 bg-orange-600 hover:bg-orange-700 shadow-lg shadow-orange-500/25"
               >
                 Book Free Revenue Audit
                 <ArrowRight size={20} className="ml-2" />
@@ -202,12 +203,12 @@ export default function Home() {
             </div>
 
             <p className="text-sm text-gray-600 mt-6">
-              In plumbing, HVAC, or roofing?{" "}
+              In med spa or aesthetics?{" "}
               <Link
-                href="/trades"
-                className="text-orange-400 hover:text-orange-300 font-medium transition-colors"
+                href="/"
+                className="text-rose-400 hover:text-rose-300 font-medium transition-colors"
               >
-                See Trades plans →
+                See Med Spa plans →
               </Link>
             </p>
           </motion.div>
@@ -218,20 +219,19 @@ export default function Home() {
       <section className="py-10 border-y border-white/5 bg-white/[0.02]">
         <div className="container mx-auto px-4 md:px-6">
           <p className="text-center text-xs font-semibold text-gray-500 uppercase tracking-widest mb-8">
-            Integrates with your booking system
+            Integrates with your dispatch & booking system
           </p>
           <div className="flex flex-wrap justify-center gap-3 md:gap-4">
             {[
-              "Boulevard",
-              "Mangomint",
-              "Mindbody",
-              "Square",
-              "Cherry",
-              "CareCredit",
+              "Jobber",
+              "Housecall Pro",
+              "Google Calendar",
+              "ServiceTitan",
+              "FieldEdge",
             ].map((platform) => (
               <span
                 key={platform}
-                className="px-5 py-2.5 rounded-full border border-white/10 bg-white/[0.03] text-sm font-medium text-gray-300 hover:border-rose-500/30 hover:text-white transition-colors cursor-default"
+                className="px-5 py-2.5 rounded-full border border-white/10 bg-white/[0.03] text-sm font-medium text-gray-300 hover:border-orange-500/30 hover:text-white transition-colors cursor-default"
               >
                 {platform}
               </span>
@@ -246,23 +246,23 @@ export default function Home() {
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-5">
               The math is{" "}
-              <span className="text-rose-400">impossible to ignore</span>
+              <span className="text-orange-400">impossible to ignore</span>
             </h2>
             <p className="text-gray-400 text-lg max-w-xl mx-auto">
-              Most med spas have no idea how much revenue walks out the door
+              Most trades companies have no idea how many jobs walk out the door
               every week.
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="glass-card rounded-3xl p-10 md:p-14 border border-white/10 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
 
               <div className="grid md:grid-cols-3 gap-8 text-center mb-10">
                 {[
-                  { label: "Average consult value", value: "$600" },
-                  { label: "Missed calls per week", value: "5" },
-                  { label: "Would-book rate", value: "60%" },
+                  { label: "Average job value", value: "$900" },
+                  { label: "Missed calls per week", value: "4" },
+                  { label: "Would-book rate", value: "55%" },
                 ].map((stat, i) => (
                   <motion.div
                     key={i}
@@ -286,9 +286,9 @@ export default function Home() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  className="text-7xl md:text-8xl font-bold text-rose-400 mb-4"
+                  className="text-7xl md:text-8xl font-bold text-orange-400 mb-4"
                 >
-                  $93,600+
+                  $103,000+
                 </motion.div>
                 <p className="text-gray-200 text-xl font-medium">
                   lost every year to unanswered calls.
@@ -296,14 +296,14 @@ export default function Home() {
                 <p className="text-gray-500 mt-4 text-sm">
                   Our system costs less than{" "}
                   <strong className="text-white">
-                    2 recovered consults per month
+                    1 recovered job per month
                   </strong>{" "}
                   to break even.
                 </p>
                 <Button
                   onClick={() => setIsCalendlyOpen(true)}
                   size="lg"
-                  className="mt-10 bg-rose-600 hover:bg-rose-700 text-white text-lg h-14 px-12 shadow-lg shadow-rose-500/20"
+                  className="mt-10 bg-orange-600 hover:bg-orange-700 text-white text-lg h-14 px-12 shadow-lg shadow-orange-500/20"
                 >
                   Book Revenue Audit
                   <ArrowRight size={18} className="ml-2" />
@@ -323,35 +323,35 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-5">
               Simple. Fast.{" "}
-              <span className="text-blue-400">Revenue-generating.</span>
+              <span className="text-orange-400">Job-generating.</span>
             </h2>
             <p className="text-gray-400 text-lg">Up and running in under 2 weeks.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 relative max-w-5xl mx-auto">
-            <div className="hidden md:block absolute top-10 left-[16%] right-[16%] h-px bg-gradient-to-r from-rose-500/20 via-purple-500/20 to-blue-500/20" />
+            <div className="hidden md:block absolute top-10 left-[16%] right-[16%] h-px bg-gradient-to-r from-orange-500/20 via-amber-500/20 to-yellow-500/20" />
             {[
               {
                 step: "01",
-                icon: <Phone className="w-8 h-8 text-rose-400" />,
+                icon: <Phone className="w-8 h-8 text-orange-400" />,
                 title: "AI Answers Every Call",
-                desc: "Branded to your spa. Natural voice. Handles after-hours, weekends, and peak hours, capturing 100% of inbound calls.",
+                desc: "Branded to your company. Natural voice. Handles after-hours, weekends, and peak hours — capturing 100% of inbound job calls.",
               },
               {
                 step: "02",
-                icon: <Calendar className="w-8 h-8 text-purple-400" />,
-                title: "Qualifies & Books Consults",
-                desc: "Collects treatment interest, budget, and availability, then books directly into your calendar with SMS confirmation.",
+                icon: <Wrench className="w-8 h-8 text-amber-400" />,
+                title: "Qualifies & Books the Job",
+                desc: "Captures issue type, address, urgency, and contact info — then books directly into Jobber or Housecall Pro with SMS confirmation.",
               },
               {
                 step: "03",
-                icon: <BarChart3 className="w-8 h-8 text-blue-400" />,
+                icon: <BarChart3 className="w-8 h-8 text-yellow-400" />,
                 title: "Dashboard Proves ROI",
-                desc: "Every call, every booking, and estimated revenue captured, visible in one clean monthly report.",
+                desc: "Every call, every job booked, and estimated revenue captured — visible in one clean monthly report.",
               },
             ].map((item, i) => (
               <div key={i} className="relative z-10 text-center">
-                <div className="w-20 h-20 mx-auto bg-background border-2 border-white/10 rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(244,63,94,0.08)]">
+                <div className="w-20 h-20 mx-auto bg-background border-2 border-white/10 rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(234,88,12,0.08)]">
                   {item.icon}
                 </div>
                 <div className="text-xs font-bold text-gray-600 mb-2 tracking-widest">
@@ -375,13 +375,13 @@ export default function Home() {
               Two plans. Zero fluff.
             </h2>
             <p className="text-gray-400 text-lg max-w-xl mx-auto">
-              Both plans install real revenue infrastructure. Choose where you
-              want to start.
+              Built for trades companies. Priced so one recovered job more than
+              pays for it.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Growth Plan */}
+            {/* Starter Plan */}
             <motion.div
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -389,37 +389,37 @@ export default function Home() {
             >
               <div className="mb-8">
                 <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">
-                  Growth Plan
+                  Starter Plan
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Capture Missed Revenue
+                  Never Miss a Job
                 </h3>
                 <p className="text-gray-400 text-sm">
-                  The infrastructure to stop losing consultations to voicemail.
+                  The infrastructure to stop losing jobs to voicemail.
                 </p>
               </div>
 
               <div className="mb-8">
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-5xl font-bold text-white">$697</span>
+                  <span className="text-5xl font-bold text-white">$497</span>
                   <span className="text-gray-500 text-lg">/month</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 mt-2">
-                  <span>$1,500 setup</span>
+                  <span>$997 setup</span>
                   <span className="text-gray-700">·</span>
                   <span>6-mo minimum</span>
                   <span className="text-gray-700">·</span>
-                  <span className="text-gray-400">$7,100/yr (2 months free)</span>
+                  <span className="text-gray-400">$5,200/yr (2 months free)</span>
                 </div>
               </div>
 
               <ul className="space-y-3 mb-10 flex-1">
-                {growthFeatures.map((f, i) => (
+                {starterFeatures.map((f, i) => (
                   <li
                     key={i}
                     className="flex items-start gap-3 text-gray-300 text-sm"
                   >
-                    <Check size={16} className="text-rose-400 mt-0.5 shrink-0" />
+                    <Check size={16} className="text-orange-400 mt-0.5 shrink-0" />
                     {f}
                   </li>
                 ))}
@@ -435,53 +435,53 @@ export default function Home() {
               </Button>
             </motion.div>
 
-            {/* Premium Plan */}
+            {/* Pro Plan */}
             <motion.div
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="glass-card p-8 md:p-10 rounded-3xl border border-rose-500/40 bg-rose-500/5 flex flex-col relative"
+              className="glass-card p-8 md:p-10 rounded-3xl border border-orange-500/40 bg-orange-500/5 flex flex-col relative"
             >
-              <div className="absolute top-0 right-0 bg-rose-600 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-2xl tracking-wide">
+              <div className="absolute top-0 right-0 bg-orange-600 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-2xl tracking-wide">
                 MOST POPULAR
               </div>
 
               <div className="mb-8">
-                <div className="text-xs font-bold text-rose-400 uppercase tracking-widest mb-3">
-                  Premium Plan
+                <div className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">
+                  Pro Plan
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Increase Total Revenue
+                  Full Pipeline. Zero Missed Jobs.
                 </h3>
                 <p className="text-gray-400 text-sm">
-                  Full revenue engine: capture, reactivate, optimize, and prove ROI.
+                  Capture, qualify, dispatch, and reactivate — completely automated.
                 </p>
               </div>
 
               <div className="mb-8">
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-5xl font-bold text-white">$997</span>
+                  <span className="text-5xl font-bold text-white">$797</span>
                   <span className="text-gray-500 text-lg">/month</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 mt-2">
-                  <span>$2,500 setup</span>
+                  <span>$1,997 setup</span>
                   <span className="text-gray-700">·</span>
                   <span>6-mo minimum</span>
                   <span className="text-gray-700">·</span>
-                  <span className="text-gray-400">$10,000/yr option</span>
+                  <span className="text-gray-400">$8,200/yr option</span>
                 </div>
               </div>
 
               <div className="mb-10 flex-1">
                 <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">
-                  Everything in Growth, plus:
+                  Everything in Starter, plus:
                 </p>
                 <ul className="space-y-3">
-                  {premiumAddons.map((f, i) => (
+                  {proAddons.map((f, i) => (
                     <li
                       key={i}
                       className="flex items-start gap-3 text-gray-300 text-sm"
                     >
-                      <Check size={16} className="text-rose-400 mt-0.5 shrink-0" />
+                      <Check size={16} className="text-orange-400 mt-0.5 shrink-0" />
                       {f}
                     </li>
                   ))}
@@ -491,7 +491,7 @@ export default function Home() {
               <Button
                 onClick={() => setIsCalendlyOpen(true)}
                 size="lg"
-                className="w-full bg-rose-600 hover:bg-rose-700 text-white h-12 shadow-lg shadow-rose-500/20"
+                className="w-full bg-orange-600 hover:bg-orange-700 text-white h-12 shadow-lg shadow-orange-500/20"
               >
                 Book Revenue Audit
               </Button>
@@ -510,11 +510,11 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Why not just hire someone?
+              Why not just use an answering service?
             </h2>
             <p className="text-gray-400 text-lg max-w-xl mx-auto">
-              Front desk staff costs $3,500-$4,500/month, and still misses
-              after-hours calls.
+              Answering services miss context. Missing calls costs jobs. Both
+              options cost you revenue.
             </p>
           </div>
 
@@ -524,18 +524,18 @@ export default function Home() {
                 <tr>
                   <th className="text-left p-4 text-gray-500 text-sm font-medium w-[30%]" />
                   <th className="p-3 text-center w-[23%]">
-                    <div className="bg-rose-600 text-white rounded-xl px-3 py-2.5 text-sm font-bold">
+                    <div className="bg-orange-600 text-white rounded-xl px-3 py-2.5 text-sm font-bold">
                       AutoMeit.ai
                     </div>
                   </th>
                   <th className="p-3 text-center w-[23%]">
                     <div className="bg-white/5 border border-white/10 text-gray-400 rounded-xl px-3 py-2.5 text-sm font-medium">
-                      Front Desk Hire
+                      Missing Calls
                     </div>
                   </th>
                   <th className="p-3 text-center w-[23%]">
                     <div className="bg-white/5 border border-white/10 text-gray-400 rounded-xl px-3 py-2.5 text-sm font-medium">
-                      Generic AI
+                      Answering Service
                     </div>
                   </th>
                 </tr>
@@ -551,14 +551,14 @@ export default function Home() {
                     <td className="p-4 text-sm text-gray-400 font-medium">
                       {row.label}
                     </td>
-                    <td className="p-4 text-center text-sm text-rose-300 font-semibold">
+                    <td className="p-4 text-center text-sm text-orange-300 font-semibold">
                       {row.automeit}
                     </td>
                     <td className="p-4 text-center text-sm text-gray-500">
-                      {row.hire}
+                      {row.miss}
                     </td>
                     <td className="p-4 text-center text-sm text-gray-500">
-                      {row.generic}
+                      {row.service}
                     </td>
                   </tr>
                 ))}
@@ -572,7 +572,7 @@ export default function Home() {
               variant="outline"
               className="border-white/10 hover:bg-white/5 text-white"
             >
-              See which plan fits your practice
+              See which plan fits your operation
               <ArrowRight size={16} className="ml-2" />
             </Button>
           </div>
@@ -584,14 +584,14 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">
-              What med spa owners say
+              What trades owners say
             </h2>
             <div className="flex items-center justify-center gap-1 mb-2">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
                   size={18}
-                  className="fill-rose-400 text-rose-400"
+                  className="fill-orange-400 text-orange-400"
                 />
               ))}
             </div>
@@ -613,7 +613,7 @@ export default function Home() {
                     <Star
                       key={j}
                       size={14}
-                      className="fill-rose-400 text-rose-400"
+                      className="fill-orange-400 text-orange-400"
                     />
                   ))}
                 </div>
@@ -640,7 +640,7 @@ export default function Home() {
                 Common questions
               </h2>
               <p className="text-gray-400">
-                Everything med spa owners ask before getting started.
+                Everything trades owners ask before getting started.
               </p>
             </div>
 
@@ -653,13 +653,13 @@ export default function Home() {
                     }
                     className="w-full flex items-center justify-between py-6 text-left group"
                   >
-                    <span className="text-white font-medium pr-8 group-hover:text-rose-300 transition-colors">
+                    <span className="text-white font-medium pr-8 group-hover:text-orange-300 transition-colors">
                       {faq.q}
                     </span>
                     <ChevronDown
                       size={20}
                       className={`text-gray-400 shrink-0 transition-transform duration-200 ${
-                        openFaq === i ? "rotate-180 text-rose-400" : ""
+                        openFaq === i ? "rotate-180 text-orange-400" : ""
                       }`}
                     />
                   </button>
@@ -684,15 +684,16 @@ export default function Home() {
             </p>
             <blockquote className="text-xl md:text-2xl font-medium text-white leading-relaxed">
               &ldquo;AutoMeit.ai is a{" "}
-              <span className="text-rose-400">
-                Med Spa Revenue Infrastructure Company
+              <span className="text-orange-400">
+                Trades Revenue Infrastructure Company
               </span>
-              . We install AI systems that capture missed revenue, book more
-              consults, increase lifetime value, and prove ROI with real
+              . We install AI systems that capture missed jobs, automate dispatch
+              intake, reactivate past customers, and prove ROI with real
               dashboards.&rdquo;
             </blockquote>
             <p className="text-gray-500 mt-8 text-sm">
-              Built for medical aesthetics practices.
+              Built for plumbing, HVAC, roofing, electrical, and general
+              contracting.
             </p>
           </div>
         </div>
@@ -701,15 +702,15 @@ export default function Home() {
       {/* FINAL CTA */}
       <section className="py-28">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="bg-gradient-to-br from-rose-900/40 via-background to-purple-900/40 border border-white/10 rounded-3xl p-10 md:p-20 text-center relative overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="bg-gradient-to-br from-orange-900/40 via-background to-amber-900/40 border border-white/10 rounded-3xl p-10 md:p-20 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-orange-600/10 rounded-full blur-3xl pointer-events-none" />
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Ready to stop leaving money on the table?
+                Ready to stop leaving jobs on the table?
               </h2>
               <p className="text-gray-300 mb-3 max-w-xl mx-auto text-lg">
                 Book a free 20-minute revenue audit. We'll calculate exactly how
-                many consults you're missing and what the dollar impact is.
+                many jobs you're missing and what the dollar impact is.
               </p>
               <p className="text-gray-500 text-sm mb-10">
                 No pitch. No pressure. Real numbers.
@@ -717,7 +718,7 @@ export default function Home() {
               <Button
                 onClick={() => setIsCalendlyOpen(true)}
                 size="lg"
-                className="bg-rose-600 hover:bg-rose-700 text-white text-lg h-14 px-14 shadow-xl shadow-rose-500/20"
+                className="bg-orange-600 hover:bg-orange-700 text-white text-lg h-14 px-14 shadow-xl shadow-orange-500/20"
               >
                 Book Revenue Audit
                 <ArrowRight size={20} className="ml-2" />
