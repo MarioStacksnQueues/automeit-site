@@ -18,11 +18,11 @@ export function Footer() {
                 AutoMeit<span className="text-rose-500">.ai</span>
               </span>
             </Link>
-
             <p className="text-gray-400 text-sm leading-relaxed">
-              Med spa revenue infrastructure. We install AI phone systems that capture missed calls, book consultations automatically, and prove ROI, built exclusively for medical aesthetics practices.
+              AI revenue infrastructure for high-ticket service businesses. We
+              install AI phone systems that capture missed calls, book jobs and
+              consultations automatically, and prove ROI.
             </p>
-
             <div className="flex items-center gap-4">
               <a
                 href="https://www.instagram.com/automeit.ai/?hl=en"
@@ -46,8 +46,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-6">Plans</h4>
-            <ul className="space-y-3 text-sm text-gray-400">
+            <h4 className="font-semibold text-white mb-4">Med Spa Plans</h4>
+            <ul className="space-y-3 text-sm text-gray-400 mb-6">
               <li>
                 <Link href="/services#top" className="hover:text-rose-400 transition-colors">
                   Growth Plan - $697/mo
@@ -58,14 +58,17 @@ export function Footer() {
                   Premium Plan - $997/mo
                 </Link>
               </li>
+            </ul>
+            <h4 className="font-semibold text-white mb-4">Trades Plans</h4>
+            <ul className="space-y-3 text-sm text-gray-400">
               <li>
-                <Link href="/services#top" className="hover:text-rose-400 transition-colors">
-                  Revenue Dashboard
+                <Link href="/trades-services#top" className="hover:text-orange-400 transition-colors">
+                  Starter Plan - $497/mo
                 </Link>
               </li>
               <li>
-                <Link href="/services#top" className="hover:text-rose-400 transition-colors">
-                  Booking Integrations
+                <Link href="/trades-services#top" className="hover:text-orange-400 transition-colors">
+                  Pro Plan - $797/mo
                 </Link>
               </li>
             </ul>
@@ -75,29 +78,19 @@ export function Footer() {
             <h4 className="font-semibold text-white mb-6">Company</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
-                <Link href="/about#top" className="hover:text-rose-400 transition-colors">
-                  About Us
-                </Link>
+                <Link href="/about#top" className="hover:text-rose-400 transition-colors">About Us</Link>
               </li>
               <li>
-                <Link href="/contact#top" className="hover:text-rose-400 transition-colors">
-                  Contact
-                </Link>
+                <Link href="/contact#top" className="hover:text-rose-400 transition-colors">Contact</Link>
               </li>
               <li>
-                <Link href="/privacy#top" className="hover:text-rose-400 transition-colors">
-                  Privacy Policy
-                </Link>
+                <Link href="/privacy#top" className="hover:text-rose-400 transition-colors">Privacy Policy</Link>
               </li>
               <li>
-                <Link href="/terms#top" className="hover:text-rose-400 transition-colors">
-                  Terms of Service
-                </Link>
+                <Link href="/terms#top" className="hover:text-rose-400 transition-colors">Terms of Service</Link>
               </li>
               <li>
-                <Link href="/sms-policy#top" className="hover:text-rose-400 transition-colors">
-                  SMS Policy
-                </Link>
+                <Link href="/sms-policy#top" className="hover:text-rose-400 transition-colors">SMS Policy</Link>
               </li>
             </ul>
           </div>
@@ -112,7 +105,8 @@ export function Footer() {
                 </Link>
               </li>
               <li className="text-gray-500 text-xs mt-4 leading-relaxed">
-                Built exclusively for medical aesthetics practices. Now accepting new clients.
+                Serving med spa and aesthetics practices, and trades companies.
+                Now accepting new clients.
               </li>
             </ul>
           </div>
@@ -121,17 +115,11 @@ export function Footer() {
         <Separator className="bg-white/5 mb-8" />
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>&copy; {currentYear} AutoMeit.ai. All rights reserved. Med Spa Revenue Infrastructure.</p>
+          <p>&copy; {currentYear} AutoMeit.ai. All rights reserved. AI Revenue Infrastructure.</p>
           <div className="flex gap-8">
-            <Link href="/privacy#top" className="hover:text-gray-300 transition-colors">
-              Privacy
-            </Link>
-            <Link href="/terms#top" className="hover:text-gray-300 transition-colors">
-              Terms
-            </Link>
-            <Link href="/sms-policy#top" className="hover:text-gray-300 transition-colors">
-              SMS Policy
-            </Link>
+            <Link href="/privacy#top" className="hover:text-gray-300 transition-colors">Privacy</Link>
+            <Link href="/terms#top" className="hover:text-gray-300 transition-colors">Terms</Link>
+            <Link href="/sms-policy#top" className="hover:text-gray-300 transition-colors">SMS Policy</Link>
           </div>
         </div>
       </div>

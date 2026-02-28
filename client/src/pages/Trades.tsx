@@ -19,14 +19,14 @@ import { PopupModal } from "react-calendly";
 const faqs = [
   {
     q: "Will it work with Jobber or Housecall Pro?",
-    a: "Yes. We integrate directly with Jobber, Housecall Pro, and Google Calendar. Booked jobs flow straight into your existing system — no double entry, no extra steps for your team.",
+    a: "Yes. We integrate directly with Jobber, Housecall Pro, and Google Calendar. Booked jobs flow straight into your existing system. No double entry, no extra steps for your team.",
   },
   {
     q: "What about emergency calls at 2am?",
-    a: "That's exactly what this is built for. The AI answers immediately, captures the issue type, address, urgency level, and contact info, then fires an instant SMS alert to your on-call tech. You never miss the high-ticket emergency call again.",
+    a: "That is exactly what this is built for. The AI answers immediately, captures the issue type, address, urgency level, and contact info, then fires an instant SMS alert to your on-call tech. You never miss the high-ticket emergency call again.",
   },
   {
-    q: "Can it handle multiple job types — plumbing, HVAC installs, roof estimates?",
+    q: "Can it handle multiple job types: plumbing, HVAC installs, roof estimates?",
     a: "Every call flow is custom-built for your business. We script separate intake paths for emergency calls, estimate requests, maintenance appointments, and seasonal services. Nothing generic.",
   },
   {
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "What if a caller asks about pricing or availability?",
-    a: "Before launch, we train the AI on your service areas, general pricing ranges, availability windows, and what customers should do before the tech arrives. It handles the common questions so your team doesn't have to.",
+    a: "Before launch, we train the AI on your service areas, general pricing ranges, availability windows, and what customers should do before the tech arrives. It handles the common questions so your team does not have to.",
   },
 ];
 
@@ -53,14 +53,14 @@ const testimonials = [
   },
   {
     quote:
-      "HVAC season hits and my phone doesn't stop. The AI handles every call during peak hours so my office isn't drowning, and every lead is in Jobber before my team even sees it.",
+      "HVAC season hits and my phone does not stop. The AI handles every call during peak hours so my office is not drowning, and every lead is in Jobber before my team even sees it.",
     name: "Derek L.",
     title: "Operations Manager, CoolAir HVAC",
     location: "Phoenix, AZ",
   },
   {
     quote:
-      "Roofing estimates are my lifeblood after storms. The AI captures every inbound call, qualifies the damage type, and books the estimate while I'm on a roof. Closed 11 extra jobs last quarter.",
+      "Roofing estimates are my lifeblood after storms. The AI captures every inbound call, qualifies the damage type, and books the estimate while I am on a roof. Closed 11 extra jobs last quarter.",
     name: "Ray C.",
     title: "Owner, StormShield Roofing",
     location: "Atlanta, GA",
@@ -68,54 +68,14 @@ const testimonials = [
 ];
 
 const comparisonRows = [
-  {
-    label: "Monthly Cost",
-    automeit: "$497/mo",
-    miss: "$0 (lose the job)",
-    service: "$300–$600/mo",
-  },
-  {
-    label: "Hours Available",
-    automeit: "24/7 / 365",
-    miss: "Business hours only",
-    service: "24/7 (off-script)",
-  },
-  {
-    label: "Missed After-Hours Jobs",
-    automeit: "Zero",
-    miss: "100%",
-    service: "Varies",
-  },
-  {
-    label: "Trades-Specific Scripts",
-    automeit: "Custom built",
-    miss: "N/A",
-    service: "Generic only",
-  },
-  {
-    label: "Booking Integration",
-    automeit: "Jobber / HCP / GCal",
-    miss: "None",
-    service: "Not included",
-  },
-  {
-    label: "Emergency SMS Alert",
-    automeit: "Instant, automatic",
-    miss: "None",
-    service: "Not included",
-  },
-  {
-    label: "Revenue Dashboard",
-    automeit: "Included",
-    miss: "None",
-    service: "Not included",
-  },
-  {
-    label: "Setup Time",
-    automeit: "Under 2 weeks",
-    miss: "N/A",
-    service: "Days (no customization)",
-  },
+  { label: "Monthly Cost", automeit: "$497/mo", miss: "$0 (lose the job)", service: "$300-$600/mo" },
+  { label: "Hours Available", automeit: "24/7 / 365", miss: "Business hours only", service: "24/7 (off-script)" },
+  { label: "Missed After-Hours Jobs", automeit: "Zero", miss: "100%", service: "Varies" },
+  { label: "Trades-Specific Scripts", automeit: "Custom built", miss: "N/A", service: "Generic only" },
+  { label: "Booking Integration", automeit: "Jobber / HCP / GCal", miss: "None", service: "Not included" },
+  { label: "Emergency SMS Alert", automeit: "Instant, automatic", miss: "None", service: "Not included" },
+  { label: "Revenue Dashboard", automeit: "Included", miss: "None", service: "Not included" },
+  { label: "Setup Time", automeit: "Under 2 weeks", miss: "N/A", service: "Days (no customization)" },
 ];
 
 export default function Trades() {
@@ -165,7 +125,7 @@ export default function Trades() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500" />
               </span>
-              Built for Plumbing, HVAC, Roofing & Electrical
+              Built for Plumbing, HVAC, Roofing and Electrical
             </Badge>
 
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
@@ -175,7 +135,7 @@ export default function Trades() {
 
             <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
               We install a 24/7 AI phone system that captures every inbound job
-              call, qualifies the lead, and books it — even after hours,
+              call, qualifies the lead, and books it, even after hours,
               weekends, and your busiest days.
             </p>
 
@@ -219,16 +179,10 @@ export default function Trades() {
       <section className="py-10 border-y border-white/5 bg-white/[0.02]">
         <div className="container mx-auto px-4 md:px-6">
           <p className="text-center text-xs font-semibold text-gray-500 uppercase tracking-widest mb-8">
-            Integrates with your dispatch & booking system
+            Integrates with your dispatch and booking system
           </p>
           <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-            {[
-              "Jobber",
-              "Housecall Pro",
-              "Google Calendar",
-              "ServiceTitan",
-              "FieldEdge",
-            ].map((platform) => (
+            {["Jobber", "Housecall Pro", "Google Calendar", "ServiceTitan", "FieldEdge"].map((platform) => (
               <span
                 key={platform}
                 className="px-5 py-2.5 rounded-full border border-white/10 bg-white/[0.03] text-sm font-medium text-gray-300 hover:border-orange-500/30 hover:text-white transition-colors cursor-default"
@@ -249,15 +203,13 @@ export default function Trades() {
               <span className="text-orange-400">impossible to ignore</span>
             </h2>
             <p className="text-gray-400 text-lg max-w-xl mx-auto">
-              Most trades companies have no idea how many jobs walk out the door
-              every week.
+              Most trades companies have no idea how many jobs walk out the door every week.
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="glass-card rounded-3xl p-10 md:p-14 border border-white/10 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
-
               <div className="grid md:grid-cols-3 gap-8 text-center mb-10">
                 {[
                   { label: "Average job value", value: "$900" },
@@ -272,14 +224,11 @@ export default function Trades() {
                     viewport={{ once: true }}
                     className="space-y-2"
                   >
-                    <div className="text-5xl md:text-6xl font-bold text-white">
-                      {stat.value}
-                    </div>
+                    <div className="text-5xl md:text-6xl font-bold text-white">{stat.value}</div>
                     <div className="text-sm text-gray-400">{stat.label}</div>
                   </motion.div>
                 ))}
               </div>
-
               <div className="border-t border-white/10 pt-10 text-center">
                 <p className="text-gray-400 mb-3 text-base">That's</p>
                 <motion.div
@@ -290,14 +239,10 @@ export default function Trades() {
                 >
                   $103,000+
                 </motion.div>
-                <p className="text-gray-200 text-xl font-medium">
-                  lost every year to unanswered calls.
-                </p>
+                <p className="text-gray-200 text-xl font-medium">lost every year to unanswered calls.</p>
                 <p className="text-gray-500 mt-4 text-sm">
                   Our system costs less than{" "}
-                  <strong className="text-white">
-                    1 recovered job per month
-                  </strong>{" "}
+                  <strong className="text-white">1 recovered job per month</strong>{" "}
                   to break even.
                 </p>
                 <Button
@@ -315,10 +260,7 @@ export default function Trades() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section
-        id="how-it-works"
-        className="py-24 bg-white/[0.02] border-y border-white/5"
-      >
+      <section id="how-it-works" className="py-24 bg-white/[0.02] border-y border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-5">
@@ -335,32 +277,28 @@ export default function Trades() {
                 step: "01",
                 icon: <Phone className="w-8 h-8 text-orange-400" />,
                 title: "AI Answers Every Call",
-                desc: "Branded to your company. Natural voice. Handles after-hours, weekends, and peak hours — capturing 100% of inbound job calls.",
+                desc: "Branded to your company. Natural voice. Handles after-hours, weekends, and peak hours, capturing 100% of inbound job calls.",
               },
               {
                 step: "02",
                 icon: <Wrench className="w-8 h-8 text-amber-400" />,
-                title: "Qualifies & Books the Job",
-                desc: "Captures issue type, address, urgency, and contact info — then books directly into Jobber or Housecall Pro with SMS confirmation.",
+                title: "Qualifies and Books the Job",
+                desc: "Captures issue type, address, urgency, and contact info, then books directly into Jobber or Housecall Pro with SMS confirmation.",
               },
               {
                 step: "03",
                 icon: <BarChart3 className="w-8 h-8 text-yellow-400" />,
                 title: "Dashboard Proves ROI",
-                desc: "Every call, every job booked, and estimated revenue captured — visible in one clean monthly report.",
+                desc: "Every call, every job booked, and estimated revenue captured, visible in one clean monthly report.",
               },
             ].map((item, i) => (
               <div key={i} className="relative z-10 text-center">
                 <div className="w-20 h-20 mx-auto bg-background border-2 border-white/10 rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(234,88,12,0.08)]">
                   {item.icon}
                 </div>
-                <div className="text-xs font-bold text-gray-600 mb-2 tracking-widest">
-                  STEP {item.step}
-                </div>
+                <div className="text-xs font-bold text-gray-600 mb-2 tracking-widest">STEP {item.step}</div>
                 <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-gray-400 max-w-xs mx-auto leading-relaxed text-sm">
-                  {item.desc}
-                </p>
+                <p className="text-gray-400 max-w-xs mx-auto leading-relaxed text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -371,34 +309,23 @@ export default function Trades() {
       <section id="pricing" className="py-28">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              Two plans. Zero fluff.
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Two plans. Zero fluff.</h2>
             <p className="text-gray-400 text-lg max-w-xl mx-auto">
-              Built for trades companies. Priced so one recovered job more than
-              pays for it.
+              Built for trades companies. Priced so one recovered job more than pays for it.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Starter Plan */}
             <motion.div
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 300 }}
               className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 flex flex-col"
             >
               <div className="mb-8">
-                <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">
-                  Starter Plan
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  Never Miss a Job
-                </h3>
-                <p className="text-gray-400 text-sm">
-                  The infrastructure to stop losing jobs to voicemail.
-                </p>
+                <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Starter Plan</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Never Miss a Job</h3>
+                <p className="text-gray-400 text-sm">The infrastructure to stop losing jobs to voicemail.</p>
               </div>
-
               <div className="mb-8">
                 <div className="flex items-baseline gap-2 mb-1">
                   <span className="text-5xl font-bold text-white">$497</span>
@@ -412,19 +339,14 @@ export default function Trades() {
                   <span className="text-gray-400">$5,200/yr (2 months free)</span>
                 </div>
               </div>
-
               <ul className="space-y-3 mb-10 flex-1">
                 {starterFeatures.map((f, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-gray-300 text-sm"
-                  >
+                  <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
                     <Check size={16} className="text-orange-400 mt-0.5 shrink-0" />
                     {f}
                   </li>
                 ))}
               </ul>
-
               <Button
                 onClick={() => setIsCalendlyOpen(true)}
                 variant="outline"
@@ -435,7 +357,6 @@ export default function Trades() {
               </Button>
             </motion.div>
 
-            {/* Pro Plan */}
             <motion.div
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -444,19 +365,11 @@ export default function Trades() {
               <div className="absolute top-0 right-0 bg-orange-600 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-2xl tracking-wide">
                 MOST POPULAR
               </div>
-
               <div className="mb-8">
-                <div className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">
-                  Pro Plan
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  Full Pipeline. Zero Missed Jobs.
-                </h3>
-                <p className="text-gray-400 text-sm">
-                  Capture, qualify, dispatch, and reactivate — completely automated.
-                </p>
+                <div className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-3">Pro Plan</div>
+                <h3 className="text-2xl font-bold text-white mb-2">Full Pipeline. Zero Missed Jobs.</h3>
+                <p className="text-gray-400 text-sm">Capture, qualify, dispatch, and reactivate, completely automated.</p>
               </div>
-
               <div className="mb-8">
                 <div className="flex items-baseline gap-2 mb-1">
                   <span className="text-5xl font-bold text-white">$797</span>
@@ -470,24 +383,17 @@ export default function Trades() {
                   <span className="text-gray-400">$8,200/yr option</span>
                 </div>
               </div>
-
               <div className="mb-10 flex-1">
-                <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">
-                  Everything in Starter, plus:
-                </p>
+                <p className="text-xs text-gray-500 uppercase tracking-widest mb-4">Everything in Starter, plus:</p>
                 <ul className="space-y-3">
                   {proAddons.map((f, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 text-gray-300 text-sm"
-                    >
+                    <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
                       <Check size={16} className="text-orange-400 mt-0.5 shrink-0" />
                       {f}
                     </li>
                   ))}
                 </ul>
               </div>
-
               <Button
                 onClick={() => setIsCalendlyOpen(true)}
                 size="lg"
@@ -497,10 +403,8 @@ export default function Trades() {
               </Button>
             </motion.div>
           </div>
-
           <p className="text-center text-sm text-gray-600 mt-8">
-            Both plans include a 6-month minimum. Annual pricing saves 2 months.
-            No hidden fees.
+            Both plans include a 6-month minimum. Annual pricing saves 2 months. No hidden fees.
           </p>
         </div>
       </section>
@@ -513,65 +417,39 @@ export default function Trades() {
               Why not just use an answering service?
             </h2>
             <p className="text-gray-400 text-lg max-w-xl mx-auto">
-              Answering services miss context. Missing calls costs jobs. Both
-              options cost you revenue.
+              Answering services miss context. Missing calls costs jobs. Both options cost you revenue.
             </p>
           </div>
-
           <div className="max-w-5xl mx-auto overflow-x-auto">
             <table className="w-full min-w-[600px]">
               <thead>
                 <tr>
                   <th className="text-left p-4 text-gray-500 text-sm font-medium w-[30%]" />
                   <th className="p-3 text-center w-[23%]">
-                    <div className="bg-orange-600 text-white rounded-xl px-3 py-2.5 text-sm font-bold">
-                      AutoMeit.ai
-                    </div>
+                    <div className="bg-orange-600 text-white rounded-xl px-3 py-2.5 text-sm font-bold">AutoMeit.ai</div>
                   </th>
                   <th className="p-3 text-center w-[23%]">
-                    <div className="bg-white/5 border border-white/10 text-gray-400 rounded-xl px-3 py-2.5 text-sm font-medium">
-                      Missing Calls
-                    </div>
+                    <div className="bg-white/5 border border-white/10 text-gray-400 rounded-xl px-3 py-2.5 text-sm font-medium">Missing Calls</div>
                   </th>
                   <th className="p-3 text-center w-[23%]">
-                    <div className="bg-white/5 border border-white/10 text-gray-400 rounded-xl px-3 py-2.5 text-sm font-medium">
-                      Answering Service
-                    </div>
+                    <div className="bg-white/5 border border-white/10 text-gray-400 rounded-xl px-3 py-2.5 text-sm font-medium">Answering Service</div>
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonRows.map((row, i) => (
-                  <tr
-                    key={i}
-                    className={`border-t border-white/5 ${
-                      i % 2 === 0 ? "bg-white/[0.01]" : ""
-                    }`}
-                  >
-                    <td className="p-4 text-sm text-gray-400 font-medium">
-                      {row.label}
-                    </td>
-                    <td className="p-4 text-center text-sm text-orange-300 font-semibold">
-                      {row.automeit}
-                    </td>
-                    <td className="p-4 text-center text-sm text-gray-500">
-                      {row.miss}
-                    </td>
-                    <td className="p-4 text-center text-sm text-gray-500">
-                      {row.service}
-                    </td>
+                  <tr key={i} className={`border-t border-white/5 ${i % 2 === 0 ? "bg-white/[0.01]" : ""}` }>
+                    <td className="p-4 text-sm text-gray-400 font-medium">{row.label}</td>
+                    <td className="p-4 text-center text-sm text-orange-300 font-semibold">{row.automeit}</td>
+                    <td className="p-4 text-center text-sm text-gray-500">{row.miss}</td>
+                    <td className="p-4 text-center text-sm text-gray-500">{row.service}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-
           <div className="text-center mt-10">
-            <Button
-              onClick={() => setIsCalendlyOpen(true)}
-              variant="outline"
-              className="border-white/10 hover:bg-white/5 text-white"
-            >
+            <Button onClick={() => setIsCalendlyOpen(true)} variant="outline" className="border-white/10 hover:bg-white/5 text-white">
               See which plan fits your operation
               <ArrowRight size={16} className="ml-2" />
             </Button>
@@ -583,21 +461,14 @@ export default function Trades() {
       <section className="py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">
-              What trades owners say
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">What trades owners say</h2>
             <div className="flex items-center justify-center gap-1 mb-2">
               {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  size={18}
-                  className="fill-orange-400 text-orange-400"
-                />
+                <Star key={i} size={18} className="fill-orange-400 text-orange-400" />
               ))}
             </div>
             <p className="text-gray-500 text-sm">Rated 5.0 by our clients</p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {testimonials.map((t, i) => (
               <motion.div
@@ -610,16 +481,10 @@ export default function Trades() {
               >
                 <div className="flex gap-0.5 mb-6">
                   {[...Array(5)].map((_, j) => (
-                    <Star
-                      key={j}
-                      size={14}
-                      className="fill-orange-400 text-orange-400"
-                    />
+                    <Star key={j} size={14} className="fill-orange-400 text-orange-400" />
                   ))}
                 </div>
-                <blockquote className="text-gray-300 text-sm leading-relaxed flex-1 mb-6">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
+                <blockquote className="text-gray-300 text-sm leading-relaxed flex-1 mb-6">&ldquo;{t.quote}&rdquo;</blockquote>
                 <div>
                   <div className="text-white font-semibold text-sm">{t.name}</div>
                   <div className="text-gray-500 text-xs mt-0.5">{t.title}</div>
@@ -636,37 +501,24 @@ export default function Trades() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Common questions
-              </h2>
-              <p className="text-gray-400">
-                Everything trades owners ask before getting started.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Common questions</h2>
+              <p className="text-gray-400">Everything trades owners ask before getting started.</p>
             </div>
-
             <div className="divide-y divide-white/8">
               {faqs.map((faq, i) => (
                 <div key={i}>
                   <button
-                    onClick={() =>
-                      setOpenFaq(openFaq === i ? null : i)
-                    }
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="w-full flex items-center justify-between py-6 text-left group"
                   >
-                    <span className="text-white font-medium pr-8 group-hover:text-orange-300 transition-colors">
-                      {faq.q}
-                    </span>
+                    <span className="text-white font-medium pr-8 group-hover:text-orange-300 transition-colors">{faq.q}</span>
                     <ChevronDown
                       size={20}
-                      className={`text-gray-400 shrink-0 transition-transform duration-200 ${
-                        openFaq === i ? "rotate-180 text-orange-400" : ""
-                      }`}
+                      className={`text-gray-400 shrink-0 transition-transform duration-200 ${openFaq === i ? "rotate-180 text-orange-400" : ""}`}
                     />
                   </button>
                   {openFaq === i && (
-                    <div className="pb-6 text-gray-400 leading-relaxed text-sm -mt-2">
-                      {faq.a}
-                    </div>
+                    <div className="pb-6 text-gray-400 leading-relaxed text-sm -mt-2">{faq.a}</div>
                   )}
                 </div>
               ))}
@@ -675,25 +527,19 @@ export default function Trades() {
         </div>
       </section>
 
-      {/* POSITIONING STATEMENT */}
+      {/* POSITIONING */}
       <section className="py-20 border-b border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-gray-500 text-xs uppercase tracking-widest mb-6">
-              What we are
-            </p>
+            <p className="text-gray-500 text-xs uppercase tracking-widest mb-6">What we are</p>
             <blockquote className="text-xl md:text-2xl font-medium text-white leading-relaxed">
               &ldquo;AutoMeit.ai is a{" "}
-              <span className="text-orange-400">
-                Trades Revenue Infrastructure Company
-              </span>
+              <span className="text-orange-400">Trades Revenue Infrastructure Company</span>
               . We install AI systems that capture missed jobs, automate dispatch
-              intake, reactivate past customers, and prove ROI with real
-              dashboards.&rdquo;
+              intake, reactivate past customers, and prove ROI with real dashboards.&rdquo;
             </blockquote>
             <p className="text-gray-500 mt-8 text-sm">
-              Built for plumbing, HVAC, roofing, electrical, and general
-              contracting.
+              Built for plumbing, HVAC, roofing, electrical, and general contracting.
             </p>
           </div>
         </div>
@@ -705,16 +551,12 @@ export default function Trades() {
           <div className="bg-gradient-to-br from-orange-900/40 via-background to-amber-900/40 border border-white/10 rounded-3xl p-10 md:p-20 text-center relative overflow-hidden">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-orange-600/10 rounded-full blur-3xl pointer-events-none" />
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Ready to stop leaving jobs on the table?
-              </h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to stop leaving jobs on the table?</h2>
               <p className="text-gray-300 mb-3 max-w-xl mx-auto text-lg">
-                Book a free 20-minute revenue audit. We'll calculate exactly how
-                many jobs you're missing and what the dollar impact is.
+                Book a free 20-minute revenue audit. We will calculate exactly how
+                many jobs you are missing and what the dollar impact is.
               </p>
-              <p className="text-gray-500 text-sm mb-10">
-                No pitch. No pressure. Real numbers.
-              </p>
+              <p className="text-gray-500 text-sm mb-10">No pitch. No pressure. Real numbers.</p>
               <Button
                 onClick={() => setIsCalendlyOpen(true)}
                 size="lg"
@@ -729,7 +571,6 @@ export default function Trades() {
       </section>
 
       <Footer />
-
       <PopupModal
         url="https://calendly.com/automeit-hr/free-automation-audit"
         onModalClose={() => setIsCalendlyOpen(false)}

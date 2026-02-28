@@ -7,15 +7,15 @@ import { PopupModal } from "react-calendly";
 
 const industries = [
   {
-    name: "Med Spa & Aesthetics",
+    name: "Med Spa and Aesthetics",
     href: "/",
-    desc: "Botox, fillers, laser & more",
+    desc: "Botox, fillers, laser and more",
     color: "text-rose-400",
   },
   {
     name: "Trades",
     href: "/trades",
-    desc: "Plumbing, HVAC, roofing & electrical",
+    desc: "Plumbing, HVAC, roofing and electrical",
     color: "text-orange-400",
   },
 ];
@@ -28,10 +28,11 @@ export function Navbar() {
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  const isTradesPage = location === "/trades" || location === "/trades-services";
+  const servicesHref = isTradesPage ? "/trades-services" : "/services";
+
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -47,7 +48,7 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Services", href: "/services" },
+    { name: "Services", href: servicesHref },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
@@ -79,17 +80,13 @@ export function Navbar() {
                 <button
                   onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
                   className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-rose-400 ${
-                    location === "/" || location === "/trades"
-                      ? "text-rose-400"
-                      : "text-gray-300"
+                    location === "/" || location === "/trades" ? "text-rose-400" : "text-gray-300"
                   }`}
                 >
                   Industries
                   <ChevronDown
                     size={14}
-                    className={`transition-transform duration-200 ${
-                      isIndustriesOpen ? "rotate-180" : ""
-                    }`}
+                    className={`transition-transform duration-200 ${isIndustriesOpen ? "rotate-180" : ""}`}
                   />
                 </button>
                 <AnimatePresence>
@@ -108,9 +105,7 @@ export function Navbar() {
                           onClick={() => setIsIndustriesOpen(false)}
                           className="flex flex-col gap-0.5 px-5 py-4 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0"
                         >
-                          <span className={`text-sm font-semibold ${ind.color}`}>
-                            {ind.name}
-                          </span>
+                          <span className={`text-sm font-semibold ${ind.color}`}>{ind.name}</span>
                           <span className="text-xs text-gray-500">{ind.desc}</span>
                         </Link>
                       ))}
@@ -160,9 +155,7 @@ export function Navbar() {
           >
             <div className="flex flex-col gap-6">
               <div>
-                <p className="text-xs font-bold text-gray-600 uppercase tracking-widest mb-3">
-                  Industries
-                </p>
+                <p className="text-xs font-bold text-gray-600 uppercase tracking-widest mb-3">Industries</p>
                 {industries.map((ind) => (
                   <Link
                     key={ind.href}
@@ -170,9 +163,7 @@ export function Navbar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex flex-col gap-0.5 py-3 border-b border-white/5"
                   >
-                    <span className={`text-lg font-semibold ${ind.color}`}>
-                      {ind.name}
-                    </span>
+                    <span className={`text-lg font-semibold ${ind.color}`}>{ind.name}</span>
                     <span className="text-sm text-gray-500">{ind.desc}</span>
                   </Link>
                 ))}
@@ -190,10 +181,7 @@ export function Navbar() {
                 </Link>
               ))}
               <Button
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsCalendlyOpen(true);
-                }}
+                onClick={() => { setIsMobileMenuOpen(false); setIsCalendlyOpen(true); }}
                 className="mt-4 w-full bg-rose-600 hover:bg-rose-700 text-lg py-6"
               >
                 Book Revenue Audit
