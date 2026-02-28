@@ -13,6 +13,7 @@ import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import SMSPolicy from "@/pages/SMSPolicy";
 import Trades from "@/pages/Trades";
+import TradesServices from "@/pages/TradesServices";
 import { ElevenLabsWidget } from "@/components/ElevenLabsWidget";
 
 function ScrollToTop() {
@@ -36,8 +37,9 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/trades" component={Trades} />
       <Route path="/services" component={Services} />
+      <Route path="/trades" component={Trades} />
+      <Route path="/trades-services" component={TradesServices} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/privacy" component={Privacy} />
