@@ -48,22 +48,22 @@ const testimonials = [
     quote:
       "We were losing 3-4 after-hours calls a week. Emergency jobs at $1,200 a pop. Within the first month we recovered 6 jobs we would have lost to voicemail. System paid for itself week one.",
     name: "Marcus T.",
-    title: "Owner, TrueFlow Plumbing",
-    location: "Houston, TX",
+    title: "Owner",
+    location: "Plumbing Company — Houston, TX",
   },
   {
     quote:
       "HVAC season hits and my phone does not stop. The AI handles every call during peak hours so my office is not drowning, and every lead is in Jobber before my team even sees it.",
     name: "Derek L.",
-    title: "Operations Manager, CoolAir HVAC",
-    location: "Phoenix, AZ",
+    title: "Operations Manager",
+    location: "HVAC Company — Phoenix, AZ",
   },
   {
     quote:
       "Roofing estimates are my lifeblood after storms. The AI captures every inbound call, qualifies the damage type, and books the estimate while I am on a roof. Closed 11 extra jobs last quarter.",
     name: "Ray C.",
-    title: "Owner, StormShield Roofing",
-    location: "Atlanta, GA",
+    title: "Owner",
+    location: "Roofing Company — Atlanta, GA",
   },
 ];
 
@@ -467,7 +467,7 @@ export default function Trades() {
                 <Star key={i} size={18} className="fill-orange-400 text-orange-400" />
               ))}
             </div>
-            <p className="text-gray-500 text-sm">Rated 5.0 by our clients</p>
+            <p className="text-gray-500 text-sm">Client results</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {testimonials.map((t, i) => (
