@@ -23,6 +23,29 @@ import { PopupModal } from "react-calendly";
 export default function Services() {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
+  const starterFeatures = [
+    {
+      icon: <Zap className="w-6 h-6 text-rose-400" />,
+      title: "Missed-Call Text-Back",
+      desc: "When a call goes unanswered, an instant branded SMS fires within seconds with a direct booking link. Revenue that would have walked out the door stays in your pipeline.",
+    },
+    {
+      icon: <Phone className="w-6 h-6 text-rose-400" />,
+      title: "After-Hours AI Response",
+      desc: "AI answers calls outside business hours, captures name, phone, and service interest, then promises next-business-day callback with an SMS confirmation.",
+    },
+    {
+      icon: <Users className="w-6 h-6 text-rose-400" />,
+      title: "Basic Lead Routing",
+      desc: "Every captured lead is logged, timestamped, and delivered to you via text or email so nothing falls through the cracks.",
+    },
+    {
+      icon: <BarChart3 className="w-6 h-6 text-rose-400" />,
+      title: "Monthly Performance Report",
+      desc: "A simple monthly report showing calls handled, leads captured, and estimated recovery value from missed-call recovery.",
+    },
+  ];
+
   const growthFeatures = [
     {
       icon: <Phone className="w-6 h-6 text-rose-400" />,
@@ -61,7 +84,7 @@ export default function Services() {
     },
   ];
 
-  const premiumFeatures = [
+  const eliteFeatures = [
     {
       icon: <Star className="w-6 h-6 text-purple-400" />,
       title: "Review Automation Engine",
@@ -120,45 +143,33 @@ export default function Services() {
         </div>
       </section>
 
-      {/* GROWTH PLAN */}
+      {/* STARTER PLAN */}
       <section className="py-24 border-t border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left: Plan summary */}
             <div className="lg:sticky lg:top-28">
-              <div className="inline-flex items-center gap-2 bg-rose-500/10 border border-rose-500/20 rounded-full px-4 py-2 mb-6">
-                <span className="text-rose-400 text-sm font-bold">GROWTH PLAN</span>
+              <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 mb-6">
+                <span className="text-gray-300 text-sm font-bold">STARTER PLAN</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Capture Missed Revenue
+                Stop the Bleeding
               </h2>
               <p className="text-gray-400 text-lg mb-8">
-                You're not paying for minutes. You're installing operational
-                infrastructure that captures consults you're currently losing to
-                voicemail, after-hours, and peak-traffic blackouts.
+                The essential foundation. Missed-call recovery and after-hours AI so every lead that calls gets a response — even when you're closed.
               </p>
 
               <div className="space-y-3 text-sm text-gray-400 mb-10">
                 {[
-                  "$1,500 one-time setup fee",
-                  "$697/month",
-                  "6-month minimum commitment",
-                  "$7,100/year, saves 2 months",
+                  "$297 one-time setup fee",
+                  "$297/month",
+                  "Month-to-month — cancel any time with 30 days notice",
+                  "7-day proof period included",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <Check size={14} className="text-rose-400 shrink-0" />
                     <span>{item}</span>
                   </div>
                 ))}
-              </div>
-
-              <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/8 mb-8">
-                <p className="text-sm text-gray-500 italic">
-                  &ldquo;Setup is $1,500 because we build out your full
-                  treatment scripts and integrate directly into your booking
-                  system. Monthly is $697. You need just 2 additional consults
-                  per month to break even.&rdquo;
-                </p>
               </div>
 
               <Button
@@ -168,16 +179,12 @@ export default function Services() {
                 className="border-white/10 hover:bg-white/5 text-white h-12 px-8 group"
               >
                 Book Revenue Audit
-                <ArrowRight
-                  size={16}
-                  className="ml-2 group-hover:translate-x-1 transition-transform"
-                />
+                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
 
-            {/* Right: Feature cards */}
             <div className="space-y-4">
-              {growthFeatures.map((feature, i) => (
+              {starterFeatures.map((feature, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: 20 }}
@@ -190,12 +197,8 @@ export default function Services() {
                     {feature.icon}
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-1 text-sm">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      {feature.desc}
-                    </p>
+                    <h3 className="text-white font-semibold mb-1 text-sm">{feature.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">{feature.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -204,13 +207,12 @@ export default function Services() {
         </div>
       </section>
 
-      {/* PREMIUM PLAN */}
+      {/* GROWTH PLAN */}
       <section className="py-24 bg-white/[0.02] border-y border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left: Feature cards */}
             <div className="space-y-4">
-              {premiumFeatures.map((feature, i) => (
+              {growthFeatures.map((feature, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -20 }}
@@ -219,27 +221,74 @@ export default function Services() {
                   viewport={{ once: true }}
                   className="glass-card p-5 rounded-xl border border-white/8 flex items-start gap-4"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center shrink-0">
                     {feature.icon}
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-1 text-sm">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      {feature.desc}
-                    </p>
+                    <h3 className="text-white font-semibold mb-1 text-sm">{feature.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">{feature.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            {/* Right: Plan summary */}
+            <div className="lg:sticky lg:top-28">
+              <div className="inline-flex items-center gap-2 bg-rose-500/10 border border-rose-500/20 rounded-full px-4 py-2 mb-6">
+                <span className="text-rose-400 text-sm font-bold">GROWTH PLAN — MOST POPULAR</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Capture Missed Revenue
+              </h2>
+              <p className="text-gray-400 text-lg mb-8">
+                You're not paying for minutes. You're installing operational
+                infrastructure that captures consults you're currently losing to
+                voicemail, after-hours, and peak-traffic blackouts.
+              </p>
+
+              <div className="space-y-3 text-sm text-gray-400 mb-10">
+                {[
+                  "$500 one-time setup fee",
+                  "$497/month",
+                  "Month-to-month — cancel any time with 30 days notice",
+                  "$4,970/year (saves 2 months)",
+                  "7-day proof period included",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <Check size={14} className="text-rose-400 shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/8 mb-8">
+                <p className="text-sm text-gray-500 italic">
+                  &ldquo;Setup is $500 because we build out your full
+                  treatment scripts and integrate directly into your booking
+                  system. Monthly is $497. You need just 2 additional consults
+                  per month to break even.&rdquo;
+                </p>
+              </div>
+
+              <Button
+                onClick={() => setIsCalendlyOpen(true)}
+                size="lg"
+                className="bg-rose-600 hover:bg-rose-700 text-white h-12 px-8 shadow-lg shadow-rose-500/20 group"
+              >
+                Book Revenue Audit
+                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ELITE PLAN */}
+      <section className="py-24 border-y border-white/5">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="lg:sticky lg:top-28">
               <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-2 mb-6">
-                <span className="text-purple-400 text-sm font-bold">
-                  PREMIUM PLAN - MOST POPULAR
-                </span>
+                <span className="text-purple-400 text-sm font-bold">ELITE PLAN</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Increase Total Revenue
@@ -253,10 +302,10 @@ export default function Services() {
 
               <div className="space-y-3 text-sm text-gray-400 mb-10">
                 {[
-                  "$2,500 one-time setup fee",
-                  "$997/month",
-                  "6-month minimum commitment",
-                  "$10,000/year option",
+                  "$1,000–$1,500 one-time setup fee",
+                  "$697/month",
+                  "Month-to-month — cancel any time with 30 days notice",
+                  "$6,970/year (saves 2 months)",
                   "Includes everything in Growth Plan",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
@@ -271,7 +320,7 @@ export default function Services() {
                   Growth = Capture missed revenue
                 </p>
                 <p className="text-sm text-gray-300 font-medium">
-                  Premium = Increase total revenue
+                  Elite = Increase total revenue
                 </p>
                 <p className="text-xs text-gray-600 mt-3">
                   That's how we explain the difference.
@@ -284,11 +333,29 @@ export default function Services() {
                 className="bg-rose-600 hover:bg-rose-700 text-white h-12 px-8 shadow-lg shadow-rose-500/20 group"
               >
                 Book Revenue Audit
-                <ArrowRight
-                  size={16}
-                  className="ml-2 group-hover:translate-x-1 transition-transform"
-                />
+                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
+            </div>
+
+            <div className="space-y-4">
+              {eliteFeatures.map((feature, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.07 }}
+                  viewport={{ once: true }}
+                  className="glass-card p-5 rounded-xl border border-white/8 flex items-start gap-4"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center shrink-0">
+                    {feature.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold mb-1 text-sm">{feature.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">{feature.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>

@@ -50,12 +50,17 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-400 mb-6">
               <li>
                 <Link href="/services#top" className="hover:text-rose-400 transition-colors">
-                  Growth Plan - $697/mo
+                  Starter Plan - $297/mo
                 </Link>
               </li>
               <li>
                 <Link href="/services#top" className="hover:text-rose-400 transition-colors">
-                  Premium Plan - $997/mo
+                  Growth Plan - $497/mo
+                </Link>
+              </li>
+              <li>
+                <Link href="/services#top" className="hover:text-rose-400 transition-colors">
+                  Elite Plan - $697/mo
                 </Link>
               </li>
             </ul>

@@ -73,7 +73,7 @@ const testimonials = [
 const comparisonRows = [
   {
     label: "Monthly Cost",
-    automeit: "$697/mo",
+    automeit: "From $497/mo",
     hire: "$3,500-$4,500/mo",
     generic: "$99-$299/mo",
   },
@@ -114,10 +114,10 @@ const comparisonRows = [
     generic: "Not included",
   },
   {
-    label: "Setup Time",
-    automeit: "Under 2 weeks",
-    hire: "2-8 weeks to hire",
-    generic: "Days (no customization)",
+    label: "Contract",
+    automeit: "Month-to-month",
+    hire: "Employment contract",
+    generic: "Varies",
   },
 ];
 
@@ -135,7 +135,7 @@ export default function Home() {
     "Monthly revenue dashboard: calls, bookings & estimated revenue captured",
   ];
 
-  const premiumAddons = [
+  const eliteAddons = [
     "Review automation via post-appointment Google review SMS",
     "Reactivation campaigns for no-shows, lapsed clients & ghost leads",
     "Advanced dashboard: revenue per call type, conversion rates, lost-call estimates",
@@ -395,53 +395,54 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              Two plans. Zero fluff.
+              Three plans. Zero fluff.
             </h2>
             <p className="text-gray-400 text-lg max-w-xl mx-auto">
-              Both plans install real revenue infrastructure. Choose where you
-              want to start.
+              Start where it makes sense. Upgrade as you grow. Cancel any time.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Growth Plan */}
+          <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {/* Starter Plan */}
             <motion.div
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 flex flex-col"
+              className="glass-card p-8 rounded-3xl border border-white/10 flex flex-col"
             >
               <div className="mb-8">
                 <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">
-                  Growth Plan
+                  Starter Plan
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Capture Missed Revenue
+                  Stop the Bleeding
                 </h3>
                 <p className="text-gray-400 text-sm">
-                  The infrastructure to stop losing consultations to voicemail.
+                  Missed-call recovery and after-hours AI. The essential foundation.
                 </p>
               </div>
 
               <div className="mb-8">
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-5xl font-bold text-white">$697</span>
+                  <span className="text-5xl font-bold text-white">$297</span>
                   <span className="text-gray-500 text-lg">/month</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 mt-2">
-                  <span>$1,500 setup</span>
+                  <span>$297 setup</span>
                   <span className="text-gray-700">·</span>
-                  <span>6-mo minimum</span>
+                  <span>Month-to-month</span>
                   <span className="text-gray-700">·</span>
-                  <span className="text-gray-400">$7,100/yr (2 months free)</span>
+                  <span className="text-gray-400">7-day proof period</span>
                 </div>
               </div>
 
               <ul className="space-y-3 mb-10 flex-1">
-                {growthFeatures.map((f, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-gray-300 text-sm"
-                  >
+                {[
+                  "Missed-call text-back within seconds",
+                  "After-hours AI response and lead capture",
+                  "Basic lead routing and notification",
+                  "Monthly performance report",
+                ].map((f, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
                     <Check size={16} className="text-rose-400 mt-0.5 shrink-0" />
                     {f}
                   </li>
@@ -458,11 +459,11 @@ export default function Home() {
               </Button>
             </motion.div>
 
-            {/* Premium Plan */}
+            {/* Growth Plan */}
             <motion.div
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="glass-card p-8 md:p-10 rounded-3xl border border-rose-500/40 bg-rose-500/5 flex flex-col relative"
+              className="glass-card p-8 rounded-3xl border border-rose-500/40 bg-rose-500/5 flex flex-col relative"
             >
               <div className="absolute top-0 right-0 bg-rose-600 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-2xl tracking-wide">
                 MOST POPULAR
@@ -470,7 +471,57 @@ export default function Home() {
 
               <div className="mb-8">
                 <div className="text-xs font-bold text-rose-400 uppercase tracking-widest mb-3">
-                  Premium Plan
+                  Growth Plan
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  Capture Missed Revenue
+                </h3>
+                <p className="text-gray-400 text-sm">
+                  The full infrastructure to stop losing consultations to voicemail.
+                </p>
+              </div>
+
+              <div className="mb-8">
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="text-5xl font-bold text-white">$497</span>
+                  <span className="text-gray-500 text-lg">/month</span>
+                </div>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 mt-2">
+                  <span>$500 setup</span>
+                  <span className="text-gray-700">·</span>
+                  <span>Month-to-month</span>
+                  <span className="text-gray-700">·</span>
+                  <span className="text-gray-400">$4,970/yr (2 months free)</span>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-10 flex-1">
+                {growthFeatures.map((f, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
+                    <Check size={16} className="text-rose-400 mt-0.5 shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <Button
+                onClick={() => setIsCalendlyOpen(true)}
+                size="lg"
+                className="w-full bg-rose-600 hover:bg-rose-700 text-white h-12 shadow-lg shadow-rose-500/20"
+              >
+                Book Revenue Audit
+              </Button>
+            </motion.div>
+
+            {/* Elite Plan */}
+            <motion.div
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="glass-card p-8 rounded-3xl border border-white/10 flex flex-col"
+            >
+              <div className="mb-8">
+                <div className="text-xs font-bold text-purple-400 uppercase tracking-widest mb-3">
+                  Elite Plan
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">
                   Increase Total Revenue
@@ -482,15 +533,15 @@ export default function Home() {
 
               <div className="mb-8">
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-5xl font-bold text-white">$997</span>
+                  <span className="text-5xl font-bold text-white">$697</span>
                   <span className="text-gray-500 text-lg">/month</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 mt-2">
-                  <span>$2,500 setup</span>
+                  <span>$1,000–$1,500 setup</span>
                   <span className="text-gray-700">·</span>
-                  <span>6-mo minimum</span>
+                  <span>Month-to-month</span>
                   <span className="text-gray-700">·</span>
-                  <span className="text-gray-400">$10,000/yr option</span>
+                  <span className="text-gray-400">$6,970/yr (2 months free)</span>
                 </div>
               </div>
 
@@ -499,12 +550,9 @@ export default function Home() {
                   Everything in Growth, plus:
                 </p>
                 <ul className="space-y-3">
-                  {premiumAddons.map((f, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 text-gray-300 text-sm"
-                    >
-                      <Check size={16} className="text-rose-400 mt-0.5 shrink-0" />
+                  {eliteAddons.map((f, i) => (
+                    <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
+                      <Check size={16} className="text-purple-400 mt-0.5 shrink-0" />
                       {f}
                     </li>
                   ))}
@@ -513,8 +561,9 @@ export default function Home() {
 
               <Button
                 onClick={() => setIsCalendlyOpen(true)}
+                variant="outline"
                 size="lg"
-                className="w-full bg-rose-600 hover:bg-rose-700 text-white h-12 shadow-lg shadow-rose-500/20"
+                className="w-full border-white/15 hover:bg-white/5 text-white h-12"
               >
                 Book Revenue Audit
               </Button>
@@ -522,8 +571,7 @@ export default function Home() {
           </div>
 
           <p className="text-center text-sm text-gray-600 mt-8">
-            Both plans include a 6-month minimum. Annual pricing saves 2 months.
-            No hidden fees.
+            All plans include a 7-day proof period. Month-to-month — no long-term contracts. Annual option saves 2 months.
           </p>
         </div>
       </section>
@@ -624,11 +672,7 @@ export default function Home() {
               >
                 <div className="flex gap-0.5 mb-6">
                   {[...Array(5)].map((_, j) => (
-                    <Star
-                      key={j}
-                      size={14}
-                      className="fill-rose-400 text-rose-400"
-                    />
+                    <Star key={j} size={14} className="fill-rose-400 text-rose-400" />
                   ))}
                 </div>
                 <blockquote className="text-gray-300 text-sm leading-relaxed flex-1 mb-6">
@@ -662,9 +706,7 @@ export default function Home() {
               {faqs.map((faq, i) => (
                 <div key={i}>
                   <button
-                    onClick={() =>
-                      setOpenFaq(openFaq === i ? null : i)
-                    }
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="w-full flex items-center justify-between py-6 text-left group"
                   >
                     <span className="text-white font-medium pr-8 group-hover:text-rose-300 transition-colors">
@@ -697,7 +739,7 @@ export default function Home() {
               What we are
             </p>
             <blockquote className="text-xl md:text-2xl font-medium text-white leading-relaxed">
-              &ldquo;AutoMeit.ai is a{" "}
+              &ldquo;AutoMeit.ai is a{"\ "}
               <span className="text-rose-400">
                 Med Spa Revenue Infrastructure Company
               </span>

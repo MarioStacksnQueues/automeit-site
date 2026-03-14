@@ -57,7 +57,7 @@ export default function SMSPolicy() {
               <h2 className="text-2xl font-semibold text-white mt-8 mb-4">Privacy</h2>
               <p>
                 We do not sell personal information. For more information on how we handle data, see our{" "}
-                <Link href="/privacy" className="text-blue-400 hover:text-blue-300 transition-colors">
+                <Link href="/privacy" className="text-rose-400 hover:text-rose-300 transition-colors">
                   Privacy Policy
                 </Link>
                 .
@@ -66,11 +66,11 @@ export default function SMSPolicy() {
 
             <section className="pt-8 border-t border-white/10 mt-12">
               <h2 className="text-xl font-semibold text-white mb-2">Contact</h2>
-              <p>Automeit.ai</p>
+              <p>AutoMeit.ai</p>
               <p>
                 Email:{" "}
-                <a href="mailto:support@automeit.ai" className="text-blue-400 hover:text-blue-300 transition-colors">
-                  support@automeit.ai
+                <a href="mailto:hello@automeit.ai" className="text-rose-400 hover:text-rose-300 transition-colors">
+                  hello@automeit.ai
                 </a>
               </p>
             </section>
