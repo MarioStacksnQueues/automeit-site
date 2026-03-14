@@ -9,6 +9,9 @@ import {
   BarChart3,
   ChevronDown,
   Star,
+  Shield,
+  Lock,
+  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -48,21 +51,21 @@ const testimonials = [
     quote:
       "We were missing 6-8 calls per day. Within the first month we recovered 14 consults we would have lost completely. The ROI isn't even close.",
     name: "Sarah M.",
-    title: "Owner, Luxe Aesthetics & Wellness",
+    title: "Owner, Medical Spa",
     location: "Dallas, TX",
   },
   {
     quote:
       "My front desk was drowning during peak hours. Now the AI handles overflow, books the consult, sends the confirmation, and my team focuses on clients already in the chair.",
     name: "Dr. Jennifer K.",
-    title: "Medical Director, Glow Medical Spa",
+    title: "Medical Director, Aesthetic Practice",
     location: "Miami, FL",
   },
   {
     quote:
       "The revenue dashboard changed how I think about my phone line. I can see exactly what the system generates each month. It's not a cost. It's an investment with a clear return.",
     name: "Nicole R.",
-    title: "Practice Manager, Elite Med Spa",
+    title: "Practice Manager, Med Spa",
     location: "Los Angeles, CA",
   },
 ];
@@ -367,6 +370,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TRUST SIGNALS */}
+      <section className="py-10 border-b border-white/5">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-wrap justify-center gap-x-10 gap-y-5">
+            {[
+              { icon: <Shield size={14} className="text-rose-400" />, label: "HIPAA-Aware Design" },
+              { icon: <Lock size={14} className="text-rose-400" />, label: "No PHI Stored" },
+              { icon: <Lock size={14} className="text-rose-400" />, label: "SSL Encrypted" },
+              { icon: <Zap size={14} className="text-rose-400" />, label: "48-Hr Go-Live" },
+              { icon: <Check size={14} className="text-rose-400" />, label: "Dedicated Onboarding" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-2 text-gray-500 text-xs font-medium uppercase tracking-widest">
+                {item.icon}
+                {item.label}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PRICING */}
       <section id="pricing" className="py-28">
         <div className="container mx-auto px-4 md:px-6">
@@ -586,16 +609,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">
               What med spa owners say
             </h2>
-            <div className="flex items-center justify-center gap-1 mb-2">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  size={18}
-                  className="fill-rose-400 text-rose-400"
-                />
-              ))}
-            </div>
-            <p className="text-gray-500 text-sm">Rated 5.0 by our clients</p>
+            <p className="text-gray-500 text-sm">From early clients across multiple markets</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">

@@ -106,7 +106,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Email Us</h3>
-                    <p className="text-gray-400">developer@automeit.ai</p>
+                    <a href="mailto:hello@automeit.ai" className="text-gray-400 hover:text-rose-400 transition-colors">
+                      hello@automeit.ai
+                    </a>
                   </div>
                 </div>
 
@@ -126,7 +128,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Location</h3>
-                    <p className="text-gray-400">Based in New York, NY</p>
+                    <p className="text-gray-400">Based in Atlanta, GA</p>
                   </div>
                 </div>
 

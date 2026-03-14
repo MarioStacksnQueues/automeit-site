@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Linkedin, Mail, Instagram } from "lucide-react";
+import { Linkedin, Mail, Instagram, MapPin } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 export function Footer() {
@@ -34,7 +34,7 @@ export function Footer() {
                 <Instagram size={20} />
               </a>
               <a
-                href="https://www.linkedin.com/in/mario-cuevas-b26421232/"
+                href="https://www.linkedin.com/company/automeit"
                 target="_blank"
                 rel="noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -97,14 +97,18 @@ export function Footer() {
 
           <div>
             <h4 className="font-semibold text-white mb-6">Get in Touch</h4>
-            <ul className="space-y-3 text-sm text-gray-400">
+            <ul className="space-y-4 text-sm text-gray-400">
               <li className="flex items-center gap-2">
-                <Mail size={16} className="text-rose-500" />
-                <Link href="/contact#top" className="hover:text-white transition-colors">
-                  developer@automeit.ai
-                </Link>
+                <Mail size={16} className="text-rose-500 shrink-0" />
+                <a href="mailto:hello@automeit.ai" className="hover:text-white transition-colors">
+                  hello@automeit.ai
+                </a>
               </li>
-              <li className="text-gray-500 text-xs mt-4 leading-relaxed">
+              <li className="flex items-center gap-2">
+                <MapPin size={16} className="text-rose-500 shrink-0" />
+                <span>Atlanta, GA</span>
+              </li>
+              <li className="text-gray-500 text-xs mt-2 leading-relaxed">
                 Serving med spa and aesthetics practices, and trades companies.
                 Now accepting new clients.
               </li>

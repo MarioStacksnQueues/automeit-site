@@ -8,7 +8,7 @@ export default function Privacy() {
       <div className="container mx-auto px-4 md:px-6 pt-32 pb-24">
         <div className="max-w-3xl mx-auto prose prose-invert">
           <h1 className="text-4xl font-bold text-white mb-8">Privacy Policy</h1>
-          <p className="text-gray-400 mb-6">Last updated: October 2026</p>
+          <p className="text-gray-400 mb-6">Last updated: March 2026</p>
           
           <div className="space-y-6 text-gray-300">
             <p>At AutoMeit.ai, we take your privacy seriously. This policy describes how we collect and use your data.</p>
@@ -27,6 +27,12 @@ export default function Privacy() {
 
             <h2 className="text-2xl font-semibold text-white mt-8 mb-4">3. Data Security</h2>
             <p>We implement reasonable security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure.</p>
+
+            <h2 className="text-2xl font-semibold text-white mt-8 mb-4">4. HIPAA Notice</h2>
+            <p>AutoMeit.ai is designed to avoid capturing protected health information (PHI) during the intake flow. Our systems collect name, phone number, and service interest only. We do not store or process PHI as defined under HIPAA. Clients requiring a Business Associate Agreement should contact us directly.</p>
+
+            <h2 className="text-2xl font-semibold text-white mt-8 mb-4">5. Contact Us</h2>
+            <p>If you have questions about this privacy policy, contact us at <a href="mailto:hello@automeit.ai" className="text-rose-400 hover:text-rose-300">hello@automeit.ai</a>.</p>
           </div>
         </div>
       </div>
